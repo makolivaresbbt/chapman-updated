@@ -1,1 +1,175 @@
-{"sections":{"home-slideshow-1":{"type":"home-slideshow","blocks":{"block-1":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/banner_f4493536-3eeb-4782-b9dd-55cf0652aa03.gif","content-alignment":"center","title-heading":"STANDARD ISSUE","text-above":"","text-below":"","url":"","text-color":"#ffffff","text-shadow":true}}},"block_order":["block-1"],"settings":{"title":"","border":false,"layout":"full-width","transition":"transition-fade","autoplay_enable":false,"autoplay_delay":4}},"2a60ac39-549c-4482-8617-98a37ec4396b":{"type":"pxs-rich-text","blocks":{"template--18477567541539__2a60ac39-549c-4482-8617-98a37ec4396b-168058320860d659fd-0":{"type":"text","settings":{"title":"Welcome to Chapman Store","text":"<p>A fold of premium designers sourced from all around the globe with love and care. Our ethos is simple - to match people with pieces that make them feel amazing, to be worn time and time again, for years to come. <\/p>","heading_size":"medium","text_alignment":"center"}}},"block_order":["template--18477567541539__2a60ac39-549c-4482-8617-98a37ec4396b-168058320860d659fd-0"],"settings":{"width":"regular"}},"home-image-gallery-1":{"type":"home-image-gallery","blocks":{"block-1":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/gallery_012dad65-4f72-4933-aef9-52054a33fde8.gif","title":"Twenty Seven Names","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}},"block-2":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/gallery_27fa899f-46fb-43ba-b882-58ef35539c93.gif","title":"Harris Tapper","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}},"bb1726a1-f6b5-4482-ba8e-6f49ae319195":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/gallery_7f7e3988-b151-4023-8d01-8fed6c216e09.gif","title":"Jillian Boustred","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}}},"block_order":["block-1","block-2","bb1726a1-f6b5-4482-ba8e-6f49ae319195"],"settings":{"title":"","border":false,"text-shadow":true}},"home-featured-collection-1":{"type":"home-featured-collection","settings":{"title":"Shop the latest new season arrivals","border":true,"collection":"new-arrivals","products_in_row":4,"rows":1,"product_image_flip":false}},"b3600804-dfc1-4118-9a1f-ae03a2387f56":{"type":"home-image-gallery","blocks":{"template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-0":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/insta_d6ac855a-b58c-4d25-8877-08e3847622b3.gif","title":"","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}},"template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-1":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/instagram.gif","title":"","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}},"5cdb2aba-43a9-465d-be7b-2ec8a2f08952":{"type":"feature","settings":{"image":"shopify:\/\/shop_images\/instagram_7a551c4c-0515-42a8-a31c-b634fcb7fd99_1.gif","title":"","text-above":"","text-below":"","url":"","text-color":"light","text-position":"center"}}},"block_order":["template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-0","template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-1","5cdb2aba-43a9-465d-be7b-2ec8a2f08952"],"settings":{"title":"Instagram","border":false,"text-shadow":true}}},"order":["home-slideshow-1","2a60ac39-549c-4482-8617-98a37ec4396b","home-image-gallery-1","home-featured-collection-1","b3600804-dfc1-4118-9a1f-ae03a2387f56"]}
+{
+  "sections": {
+    "home-slideshow-1": {
+      "type": "home-slideshow",
+      "blocks": {
+        "block-1": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner_f4493536-3eeb-4782-b9dd-55cf0652aa03.gif",
+            "content-alignment": "center",
+            "title-heading": "STANDARD ISSUE",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "#ffffff",
+            "text-shadow": true
+          }
+        }
+      },
+      "block_order": [
+        "block-1"
+      ],
+      "settings": {
+        "title": "",
+        "border": false,
+        "layout": "full-width",
+        "transition": "transition-fade",
+        "autoplay_enable": false,
+        "autoplay_delay": 4
+      }
+    },
+    "2a60ac39-549c-4482-8617-98a37ec4396b": {
+      "type": "pxs-rich-text",
+      "blocks": {
+        "template--18477567541539__2a60ac39-549c-4482-8617-98a37ec4396b-168058320860d659fd-0": {
+          "type": "text",
+          "settings": {
+            "title": "Welcome to Chapman Store",
+            "text": "<p>A fold of premium designers sourced from all around the globe with love and care. Our ethos is simple - to match people with pieces that make them feel amazing, to be worn time and time again, for years to come. <\/p>",
+            "heading_size": "medium",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--18477567541539__2a60ac39-549c-4482-8617-98a37ec4396b-168058320860d659fd-0"
+      ],
+      "settings": {
+        "width": "regular"
+      }
+    },
+    "home-image-gallery-1": {
+      "type": "home-image-gallery",
+      "blocks": {
+        "block-1": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gallery_012dad65-4f72-4933-aef9-52054a33fde8.gif",
+            "title": "Twenty Seven Names",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        },
+        "block-2": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gallery_27fa899f-46fb-43ba-b882-58ef35539c93.gif",
+            "title": "Harris Tapper",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        },
+        "bb1726a1-f6b5-4482-ba8e-6f49ae319195": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gallery_7f7e3988-b151-4023-8d01-8fed6c216e09.gif",
+            "title": "Jillian Boustred",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "bb1726a1-f6b5-4482-ba8e-6f49ae319195"
+      ],
+      "settings": {
+        "title": "",
+        "border": false,
+        "text-shadow": true,
+        "zoom-hover": true
+      }
+    },
+    "home-featured-collection-1": {
+      "type": "home-featured-collection",
+      "settings": {
+        "title": "Shop the latest new season arrivals",
+        "border": true,
+        "collection": "new-arrivals",
+        "products_in_row": 4,
+        "rows": 1,
+        "product_image_flip": false
+      }
+    },
+    "b3600804-dfc1-4118-9a1f-ae03a2387f56": {
+      "type": "home-image-gallery",
+      "blocks": {
+        "template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-0": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/insta_d6ac855a-b58c-4d25-8877-08e3847622b3.gif",
+            "title": "",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        },
+        "template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-1": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/instagram.gif",
+            "title": "",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        },
+        "5cdb2aba-43a9-465d-be7b-2ec8a2f08952": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/instagram_7a551c4c-0515-42a8-a31c-b634fcb7fd99_1.gif",
+            "title": "",
+            "text-above": "",
+            "text-below": "",
+            "url": "",
+            "text-color": "light",
+            "text-position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-0",
+        "template--18477567541539__b3600804-dfc1-4118-9a1f-ae03a2387f56-168059371582c930f2-1",
+        "5cdb2aba-43a9-465d-be7b-2ec8a2f08952"
+      ],
+      "settings": {
+        "title": "Instagram",
+        "border": false,
+        "text-shadow": true,
+        "zoom-hover": false
+      }
+    }
+  },
+  "order": [
+    "home-slideshow-1",
+    "2a60ac39-549c-4482-8617-98a37ec4396b",
+    "home-image-gallery-1",
+    "home-featured-collection-1",
+    "b3600804-dfc1-4118-9a1f-ae03a2387f56"
+  ]
+}
