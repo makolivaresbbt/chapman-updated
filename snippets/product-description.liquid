@@ -1,0 +1,5 @@
+{% if product.description != blank %}
+  <div class="product__description rte {{ class }}" itemprop="description" {{ block.shopify_attributes }}>
+    {{ product.description }}
+  </div>
+{% endif %}

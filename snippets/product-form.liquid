@@ -1,0 +1,47 @@
+{% unless form_id %}
+  {% assign form_id = product.id %}
+{% endunless %}
+
+{% assign variant = product.selected_or_first_available_variant %}
+{% assign show_dynamic_checkout_button = settings.show_payment_button %}
+{% if product.selling_plan_groups.size > 0 %}
+  {% assign show_dynamic_checkout_button = false %}
+{% endif %}
+
+<div
+  class="
+    product-form
+    {% if show_dynamic_checkout_button %}
+      smart-payment-buttons
+    {% endif %}
+  "
+  data-product-form="{{ form_id }}"
+>
+
+  <meta itemprop="name" content="{{ product.title }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_media.preview_image | img_url: 'grande' }}">
+
+    <div id="infiniteoptions-container"></div>
+    <div id="uploadery-container"></div>
+
+    <div class="product-submit" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <span class="payment-buttons-container">
+        <span class="product__atc-wrapper {% unless variant.available %}hidden{% endunless %}" data-atc-available>
+          <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
+          <link itemprop="availability" href="http://schema.org/InStock">
+
+          {% if show_dynamic_checkout_button %}
+            {{ form | payment_button }}
+          {% endif %}
+        </span>
+        <span class="product__atc-wrapper {% if variant.available %}hidden{% endif %}" data-atc-unavailable>
+          <input type="button" class="add-to-cart disabled" disabled="disabled" value="{{ 'products.product.sold_out' | t }}" />
+          <link itemprop="availability" href="http://schema.org/OutOfStock">
+        </span>
+      </span>
+    </div>
+  <div class="product-message"></div>
+  <div class="surface-pick-up" data-surface-pick-up></div>
+</div>

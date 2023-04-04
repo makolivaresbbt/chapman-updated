@@ -1,0 +1,29 @@
+{%- capture cartText -%}
+{{- 'layout.header.cart_item_count.one' | t | append: '|' }}{{ 'layout.header.cart_item_count.other' | t -}}
+{%- endcapture -%}
+
+{% liquid
+  for block in section.blocks
+    if block.type == 'complementary_products'
+      assign complementary_product_limit = block.settings.product_recommendation_limit
+      break
+    endif
+  endfor
+%}
+{
+  "product": {{ product | json }},
+  "sectionSettings": {{ section.settings | json }},
+  "complementaryProductLimit": {{ complementary_product_limit | json }},
+  "cartText": {{ cartText | split: '|' | json }},
+  "enableHistory": {{ enable_history | json }},
+  "message": {{ 'products.product.success_html' | t | json }},
+  "cartLink": {{ 'products.product.cart_link' | t | json }},
+  "continueLink": {{ 'products.product.continue_link' | t | json }},
+  "checkoutLink": {{ 'products.product.checkout_link' | t | json }},
+  "settings": {
+    "gallery_enable_video_autoplay": {{ section.settings.gallery_enable_video_autoplay | json }},
+    "gallery_enable_video_looping": {{ section.settings.gallery_enable_video_looping | json }},
+    "gallery_enable_zoom": {{ section.settings.enable_zoom | json }},
+    "enable_send_to_cart": {{ settings.enable_cart_redirection | json }}
+  }
+}

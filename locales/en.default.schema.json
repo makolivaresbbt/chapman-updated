@@ -1,0 +1,169 @@
+{
+  "sections": {
+    "newsletter": {
+      "name": "Newsletter",
+      "title": {
+        "label": "Heading"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "image": {
+        "label": "Image"
+      },
+      "desktop_alignment": {
+        "label": "Desktop image alignment",
+        "option_1": "Left",
+        "option_2": "Right"
+      },
+      "mobile_alignment": {
+        "label": "Mobile image alignment",
+        "option_1": "Top",
+        "option_2": "Bottom"
+      },
+      "presets": {
+        "category": "Promotional",
+        "name": "Newsletter"
+      }
+    },
+    "map": {
+      "name": "Map",
+      "section_height": {
+        "label": "Section height",
+        "option_1": "Small",
+        "option_2": "Medium",
+        "option_3": "Large"
+      },
+      "header_1": {
+        "content": "Text"
+      },
+      "title": {
+        "label": "Heading"
+      },
+      "content": {
+        "label": "Address and hours"
+      },
+      "text_alignment": {
+        "label": "Text alignment",
+        "option_1": "Left",
+        "option_2": "Center",
+        "option_3": "Right"
+      },
+      "layout": {
+        "label": "Desktop layout",
+        "group_1": "Outside",
+        "group_2": "Overlay",
+        "option_1": "Left top",
+        "option_2": "Left center",
+        "option_3": "Left bottom",
+        "option_4": "Right top",
+        "option_5": "Right center",
+        "option_6": "Right bottom",
+        "option_7": "Top left",
+        "option_8": "Top center",
+        "option_9": "Top right",
+        "option_10": "Center left",
+        "option_11": "Center",
+        "option_12": "Center right",
+        "option_13": "Bottom left",
+        "option_14": "Bottom center",
+        "option_15": "Bottom right"
+      },
+      "layout_mobile": {
+        "label": "Mobile layout",
+        "option_1": "Above map",
+        "option_2": "Below map"
+      },
+      "header_2": {
+        "content": "Map"
+      },
+      "address": {
+        "label": "Map address"
+      },
+      "api_key": {
+        "label": "Google Maps API key",
+        "info": "You’ll need to enable both [Google Maps](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) and [Geocoding](https://developers.google.com/maps/documentation/geocoding/get-api-key) API keys to display the map."
+      },
+      "enable_custom_colors": {
+        "label": "Use custom map colors"
+      },
+      "foreground_color": {
+        "label": "Map foreground color"
+      },
+      "background_color": {
+        "label": "Map background color"
+      },
+      "zoom": {
+        "label": "Map zoom level"
+      },
+      "image": {
+        "label": "Image",
+        "info": "This image is displayed when the map is not used or cannot be loaded"
+      },
+      "header_3": {
+        "content": "Overlay"
+      },
+      "overlay_color": {
+        "label": "Color"
+      },
+      "opacity": {
+        "label": "Opacity"
+      },
+      "presets": {
+        "category": "Store information",
+        "name": "Map"
+      }
+    },
+    "product": {
+      "blocks": {
+        "complementary_products": {
+          "name": "Complementary products",
+          "settings": {
+            "paragraph": {
+              "content": "To select complementary products, add the Search & Discovery app. [Learn more](https://shopify.dev/themes/product-merchandising/recommendations)"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "product_recommendation_limit": {
+              "label": "Maximum products to show"
+            },
+            "products_per_slide": {
+              "label": "Number of products per page"
+            }
+          }
+        }
+      }
+    },
+    "age_gate": {
+      "name": "Page age gate",
+      "minimum_age": {
+        "label": "Minimum age required to access page"
+      },
+      "presets": {
+        "name": "Page age gate"
+      }
+    }
+  },
+  "settings_schema": {
+    "age_gate": {
+      "name": "Age gate",
+      "enable_site_wide": {
+        "label": "Enable site-wide"
+      },
+      "minimum_age": {
+        "label": "Minimum age required to access site"
+      },
+      "heading": {
+        "label": "Heading"
+      },
+      "description": {
+        "label": "Description"
+      },
+      "show_logo": {
+        "label": "Show logo",
+        "info": "Visit [brand settings](/admin/settings/branding) to edit logo."
+      }
+    }
+  }
+}
