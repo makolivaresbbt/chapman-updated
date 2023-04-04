@@ -2,6 +2,7 @@
 
   {% assign sectionBorder = section.settings.border %}
   {% assign textShadow = section.settings.text-shadow %}
+  {% assign hoverZoom = section.settings.zoom-hover %}
 
   {% if section.blocks.size == 0 %}
     {% assign featureCount = 2 %}
@@ -49,7 +50,7 @@
             {%- endcapture -%}
 
             <div class="home-feature">
-              <div class="home-feature-image">
+              <div class="home-feature-image hover-zoom-{{ hoverZoom }}">
                 {{- image_html -}}
               </div>
 
@@ -122,6 +123,13 @@
       "label": "Show text shadow",
       "info": "Only appears when \"text shade\" is set to \"light\".",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom-hover",
+      "label": "Zoom on hover",
+      "info": "When hover the image will zoom.",
+      "default": false
     }
   ],
   "blocks": [
