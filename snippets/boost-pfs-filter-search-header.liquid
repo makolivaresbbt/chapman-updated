@@ -1,0 +1,39 @@
+{% comment %} SEARCH INPUT {% endcomment %}
+<div class="boost-pfs-filter-collection-header-wrapper boost-pfs-search-form-wrapper">
+	<div class="boost-pfs-search-container boost-pfs-container-default-{{ layout_type }}">
+		<h1 class="boost-pfs-search-result-header"></h1>
+		<form class="boost-pfs-search-form" action="{{ routes.search_url }}" method="get" role="search">
+			<input class="boost-pfs-search-input" type="search" name="q" value="{{ search.terms | escape }}">
+      <button type="button" class="boost-pfs-search-form-btn-clear" aria-label="Reset">
+        <svg aria-hidden="true" width="15" height="16" viewBox="0 0 20 20"><path d="M11.414 10l6.293-6.293a1 1 0 10-1.414-1.414L10 8.586 3.707 2.293a1 1 0 00-1.414 1.414L8.586 10l-6.293 6.293a1 1 0 101.414 1.414L10 11.414l6.293 6.293A.998.998 0 0018 17a.999.999 0 00-.293-.707L11.414 10z" fill="#222222"></path></svg>
+      </button>
+			<button type="submit" class="boost-pfs-search-btn" aria-label="Submit">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33335 9.16601C3.33335 5.94435 5.94503 3.33268 9.16669 3.33268C12.3883 3.33268 15 5.94435 15 9.16601C15 10.7377 14.3784 12.1642 13.3677 13.2132C13.3392 13.235 13.3119 13.259 13.2858 13.2851C13.2597 13.3112 13.2357 13.3386 13.2138 13.367C12.1649 14.3778 10.7384 14.9993 9.16669 14.9993C5.94503 14.9993 3.33335 12.3877 3.33335 9.16601ZM13.8481 15.0259C12.565 16.0523 10.9375 16.666 9.16669 16.666C5.02455 16.666 1.66669 13.3082 1.66669 9.16601C1.66669 5.02388 5.02455 1.66602 9.16669 1.66602C13.3088 1.66602 16.6667 5.02388 16.6667 9.16601C16.6667 10.9369 16.053 12.5644 15.0266 13.8474L18.0893 16.9101C18.4147 17.2356 18.4147 17.7632 18.0893 18.0886C17.7639 18.4141 17.2362 18.4141 16.9108 18.0886L13.8481 15.0259Z" fill="white"/>
+        </svg>
+      </button>
+		</form>
+	</div>
+</div>
+{% comment %} END SEARCH INPUT {% endcomment %}
+
+{% comment %} SEARCH RESULT TOOLBAR {% endcomment %}
+<div class="boost-pfs-container-default-{{ layout_type }}">
+  <div class="boost-pfs-search-result-toolbar">
+    <div class="boost-pfs-filter-default-toolbar-inner">
+      <div class="boost-pfs-search-result-item">
+        <ul class="boost-pfs-search-result-panel-controls">
+          <li>{% render 'boost-pfs-filter-skeleton', width: 2 %}</li>
+          <li>{% render 'boost-pfs-filter-skeleton', width: 2 %}</li>
+          <li>{% render 'boost-pfs-filter-skeleton', width: 1 %}</li>
+        </ul>
+      </div>
+      <div class="boost-pfs-search-result-item">
+        <span class="filters-toolbar__product-count boost-pfs-search-total-result">
+          {% render 'boost-pfs-filter-skeleton', width: 2 %}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %} END SEARCH RESULT TOOLBAR {% endcomment %}

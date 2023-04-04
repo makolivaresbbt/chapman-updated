@@ -1,21 +1,12 @@
 {
   "sections": {
-    "main": {
-      "type": "page-collection",
+    "product-grid": {
+      "type": "collection-template-boost-pfs-filter",
       "settings": {
-        "product_grid_layout": "uniform",
-        "products_pagination_method": "standard-pagination",
-        "products_in_row": 3,
-        "rows": 12,
-        "show_featured_image": true,
-        "collection_sorting": true,
-        "collection_filtering": true,
-        "stock_level_overlay": false,
-        "stock_level_overlay_range": 10
       }
     }
   },
   "order": [
-    "main"
+    "product-grid"
   ]
 }
