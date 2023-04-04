@@ -111,6 +111,12 @@
   {% comment %}Inject theme-object end{% endcomment %}
 
 
+
+ <!--begin-boost-pfs-filter-css-->
+   {% render 'boost-pfs-style' %}
+ <!--end-boost-pfs-filter-css-->
+
+ 
 </head>
 
 {% assign sidebar = false %}
@@ -239,5 +245,9 @@
       window.addEventListener('keydown', handleFirstTab);
     })();
   </script>
+
+ <!--begin-boost-pfs-js-->
+   {% render 'boost-pfs' %}
+ <!--end-boost-pfs-js-->
 </body>
 </html>
