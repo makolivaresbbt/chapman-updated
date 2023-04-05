@@ -91,7 +91,7 @@
         "settings": {
           "header-main-menu": "main-menu",
           "layout": "inline",
-          "sticky": false,
+          "sticky": true,
           "justify_navigation": false,
           "show_border": false,
           "logo_desktop": "shopify:\/\/shop_images\/Chapman_Logo_Header.png",
