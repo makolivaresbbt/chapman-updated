@@ -129,6 +129,20 @@
 
   {% endpaginate %}
 
+  {% if collection.image and collectionImage %}
+    <div class="collection-header">
+      <div class="collection-details">
+        <h1>{{ collection.title }}</h1>
+      </div>
+    </div>
+  {% else %}
+    {% if collection.description != blank %}
+      <div class="collection-description rte">
+        {{ collection.description }}
+      </div>
+    {% endif %}
+  {% endif %}
+
   <script>
     window.sectionJSON = {{ section.settings | json }};
   </script>
