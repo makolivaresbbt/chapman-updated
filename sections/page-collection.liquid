@@ -11,7 +11,10 @@
   {% assign productsPerRow = section.settings.products_in_row %}
   {% assign productsPerPage = productsPerRow | times: section.settings.rows %}
 
-  {% include 'collection-header' %}
+  {%
+    render 'collection-header',
+    collectionImage: collectionImage
+  %}
 
   {% paginate collection.products by productsPerPage %}
 
@@ -26,28 +29,38 @@
       <div class="collection-sharing">
         <span class="collection-sharing-toggle">{{ 'general.share_buttons.share' | t }}</span>
 
-        {% include 'share-buttons' %}
+        {% render 'share-buttons' %}
       </div>
     {% endif %}
 
     {% if collectionSorting or collectionFiltering %}
       <div class="collection-viewing-parameters">
-
+        {% if collection.handle != blank and collectionFiltering and collection.filters.size > 0 %}
+          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
+            {%
+              render 'faceted-filters',
+              filters: collection.filters,
+              class_prefix: 'faceted'
+            %}
+          </div>
+        {% endif %}
         {% if collectionSorting %}
+          {% for option in collection.sort_options %}
+            {% if option.value == collection.default_sort_by %}
+              {% assign default_option = option.name %}
+            {% endif %}
+            {% if option.value == collection.sort_by %}
+              {% assign selected_option = option.name %}
+            {% endif %}
+          {% endfor %}
+
+          {% if selected_option == blank %}
+            {% assign selected_option = default_option %}
+          {% endif %}
+
           <div class="collection-sorting {% if collection.current_vendor %}vendor-collection{% endif %}">
             <div class="select-wrapper">
               {% assign current_sort = collection.sort_by | default: collection.default_sort_by %}
-
-              <label class="selected-text">
-                {{ 'collections.collection_sorting.title' | t }}
-                <strong>
-                  {%- for option in collection.sort_options -%}
-                    {% if option.value == current_sort %}
-                      {{ option.name }}
-                    {% endif %}
-                  {%- endfor -%}
-                </strong>
-              </label>
 
               <select>
                 {% for option in collection.sort_options %}
@@ -61,93 +74,35 @@
                   </option>
                 {% endfor %}
               </select>
+
+              <label class="selected-text">
+                {{ 'collections.collection_sorting.title' | t }}: {{ selected_option }}
+                {% render 'icon' with 'chevron-down' %}
+              </label>
             </div>
           </div>
         {% endif %}
-        {% if collection.handle != blank and collectionFiltering %}
-
-          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
-
-            {% assign tagLinkLists = "collection_filter_link_list_1|collection_filter_link_list_2|collection_filter_link_list_3" | split: "|" %}
-            {% assign availableLinks = false %}
-
-            {% for list in tagLinkLists %}
-
-              {% assign name = section.settings[list] %}
-
-              {% if linklists[name].links.size > 0 %}
-
-                {% assign availableLinks = true %}
-
-                <div class="collection-filter">
-                  <div class="select-wrapper">
-                    <label class="selected-text">{{ linklists[name].title }}: <strong>{{ 'collections.collection.any_tag' | t }}</strong></label>
-                    <select>
-                      <option value="any">{{ 'collections.collection.any_tag' | t }}</option>
-
-                      {% assign currentTagsHandles = '' %}
-
-                      {% for tag in current_tags %}
-                        {% assign tagHandle = tag | handleize %}
-
-                        {% if forloop.index == 1 %}
-                          {% assign currentTagsHandles = tagHandle %}
-                        {% else %}
-                          {% assign currentTagsHandles = currentTagsHandles | append: '|' | append: tagHandle %}
-                        {% endif %}
-                      {% endfor %}
-
-                      {% assign currentTagsHandles = currentTagsHandles | split: '|' %}
-
-                      {% for link in linklists[name].links %}
-                        <!-- {{ link.object | json }} -->
-
-                        {% assign tagHandle = link.title | handleize %}
-						            {% assign tagTitle = link.title | downcase %}
-                        {% if collection.all_tags contains link.title or collection.all_tags contains tagTitle %}
-                          {% if currentTagsHandles contains tagHandle %}
-                            <option value="{{ tagHandle }}" selected>{{ link.title }}</option>
-                          {% else %}
-                            <option value="{{ tagHandle }}">{{ link.title }}</option>
-                          {% endif %}
-                        {% endif %}
-                      {% endfor %}
-                    </select>
-                  </div>
-                </div>
-              {% endif %}
-            {% endfor %}
-
-            {% if availableLinks == false and collection.tags.size > 0 %}
-              {% comment %}
-                There were no links found in any of the link lists
-              {% endcomment %}
-
-              <div class="collection-filter">
-                <div class="select-wrapper">
-                  <label class="selected-text">{{ 'collections.collection.tags_label' | t }}: <strong>{{ 'collections.collection.any_tag' | t }}</strong></label>
-                  <select>
-                    <option value="any">{{ 'collections.collection.any_tag' | t }}</option>
-                    {% for tag in collection.tags %}
-                      {% if current_tags contains tag %}
-                        <option value="{{ tag | handleize }}" selected>{{ tag }}</option>
-                      {% else %}
-                        <option value="{{ tag | handleize }}">{{ tag }}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-            {% endif %}
-
-          </div>
-
-          {% if current_tags.size > 0 %}
-            <span class="collection-remove-filter">{{ 'collections.collection.reset_tags' | t }}</span>
-          {% endif %}
-        {% endif %}
-        <div class="collection-product-count">Product Available: {{ collection.products_count }}</div>
       </div>
+      {% if collectionFiltering %}
+        {% for filter in collection.filters %}
+          {% if filter.active_values.size > 0 or filter.min_value.value or filter.max_value.value %}
+            {% capture clear_all %}
+              {% if collection.handle == 'vendors' %}
+                {{ collection.url }}&sort_by={{ current_sort }}
+              {% else %}
+                {{ collection.url }}?sort_by={{ current_sort }}
+              {% endif %}
+            {% endcapture %}
+              {%-
+                render 'faceted-filters-active',
+                filters: collection.filters,
+                class_prefix: 'faceted',
+                clear_url: clear_all,
+              -%}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     {% endif %}
 
     <div class="collection-products clearfix
@@ -158,13 +113,18 @@
       data-layout="{{productLayout}}">
 
       {% for product in collection.products %}
-        {% include 'product-list-item' %}
+        {%
+          render 'product-list-item',
+          product: product,
+          stockLevelOverlay: stockLevelOverlay,
+          stockLevelOverlayThreshold: stockLevelOverlayThreshold
+        %}
       {% else %}
         <p class="empty">{{ 'collections.collection.empty' | t }} {% if current_tags.size > 0 %}{{ 'collections.collection.empty_tag_filter' | t }}{% endif %}</p>
       {% endfor %}
     </div>
 
-    {% include 'pagination' %}
+    {% render 'pagination', paginate: paginate %}
 
   {% endpaginate %}
 
@@ -215,17 +175,17 @@
       "type": "range",
       "id": "products_in_row",
       "label": "Products per row",
-      "min": 1,
-      "max": 3,
+      "min": 2,
+      "max": 4,
       "step": 1,
-      "default": 3
+      "default": 4
     },
     {
       "type": "range",
       "id": "rows",
       "label": "Rows",
       "min": 1,
-      "max": 20,
+      "max": 12,
       "step": 1,
       "default": 2
     },
@@ -242,34 +202,14 @@
       "type": "checkbox",
       "id": "collection_sorting",
       "label": "Enable sorting",
-      "info": "[Learn more](https:\/\/support.pixelunion.net\/hc\/en-us\/articles\/360022103894-Pacific-s-products-and-collections#Collection-page)",
+      "info": "[Learn more](https://support.pixelunion.net/hc/en-us/articles/360026420633)",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "collection_filtering",
-      "label": "Enable tag filtering",
-      "info": "[Learn more](https:\/\/support.pixelunion.net\/hc\/en-us\/articles\/360022103894-Pacific-s-products-and-collections#Collection-page)",
-      "default": false
-    },
-    {
-      "type": "paragraph",
-      "content": "Create up to three menus to filter your collections by (e.g., 'Colour', 'Size' and 'Material'). Leave all three set to 'None' if you want to have a single dropdown that lists all of the collection's tags."
-    },
-    {
-      "type": "link_list",
-      "id": "collection_filter_link_list_1",
-      "label": "Menu 1"
-    },
-    {
-      "type": "link_list",
-      "id": "collection_filter_link_list_2",
-      "label": "Menu 2"
-    },
-    {
-      "type": "link_list",
-      "id": "collection_filter_link_list_3",
-      "label": "Menu 3"
+      "label": "Enable filtering",
+      "default": true
     },
     {
       "type": "header",
