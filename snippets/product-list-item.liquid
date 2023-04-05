@@ -44,7 +44,7 @@
 {% endif %}
 
 <{{ elementType }} class="product-list-item">
-  {% assign myMetafield = product.metafields.meta.product_badge %}
+  {% assign productBadges = product.metafields.meta.product_badge %}
   {% assign isSearch = false %}
   {% if template contains 'search' %}
     {% assign isSearch = true %}
@@ -70,8 +70,10 @@
       only-image
     {%- endif -%}
   {%- endcapture -%}
-  {{ myMetafield }}
-  {{ myMetafield.name }}
+  {% for metaobject in productBadges.values %}
+    {{ metaobject.field }}
+    {{ metaobject.field.value }}
+  {% endfor %}
   <figure class="product-list-item-thumbnail
     {% unless item.featured_media %}product-list-item-no-image{% endunless %}"
     {% if secondaryImage %}style="background-image:url({{ item.media[1].preview_image | img_url: '600x600' }})"{% endif %}
