@@ -72,6 +72,7 @@
     {%- endif -%}
   {%- endcapture -%}
   {{ myMetafield }}
+  {{ product.metafields.meta.product_badge.badges }}
   <figure class="product-list-item-thumbnail
     {% unless item.featured_media %}product-list-item-no-image{% endunless %}"
     {% if secondaryImage %}style="background-image:url({{ item.media[1].preview_image | img_url: '600x600' }})"{% endif %}
