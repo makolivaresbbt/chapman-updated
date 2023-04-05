@@ -1,0 +1,103 @@
+<div id="mini-cart-items" data-id="{{ section.id }}">
+  <div class="js-contents">
+    {%- if cart != empty -%}
+      <div class="mini-cart-inner">
+        <form action="{{ routes.cart_url }}" method="post">
+          <table class="mini-cart-items">
+            <thead>
+              <tr>
+                <th colspan="2">{{ 'general.general.product' | t }}</th>
+                <th>{{ 'general.general.quantity' | t }}</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {%- for item in cart.items -%}
+                <tr class="mini-cart-item" id="MiniCartItem-{{ item.index | plus: 1 }}">
+                  <td class="mini-cart-item-media">
+                    <a href="{{ item.url }}">
+                      <img class="mini-cart-item-image"
+                        src="{{ item.image | img_url: '110x165' }}"
+                        srcset="{{ item.image | img_url: '110x165' }} 110w, {{ item.image | img_url: '220x330' }} 220w"
+                        sizes="110px"
+                        alt="{{ item.image.alt | escape }}"
+                        loading="lazy"
+                        width="110"
+                        height="165"
+                      >
+                    </a>
+                  </td>
+                  <td class="mini-cart-item-details">
+                    <h3 class="mini-cart-item-title"><a href="{{ item.url }}">{{ item.product.title | escape }}</a></h3>
+
+                     {% for option in item.variant.options %}
+                        {% unless option == 'Default Title' %}
+                          <span class="mini-cart-item-option">{{ option }}</span>
+                        {% endunless %}
+                      {% endfor %}
+
+                      {% if item.properties %}
+                        <div class="mini-cart-line-item-properties">
+                          {% for property in item.properties %}
+                            {% if property.last != blank %}
+                              <span class="mini-cart-item-property">
+                                <strong>{{ property.first }}</strong>:
+
+                                {% if property.last contains "/uploads/" %}
+                                  <span class="mini-cart-item-property-value mini-cart-item-upload" data-file="{{ property.last }}">
+                                    {{ property.last | split: '/' | last }}
+                                  </span>
+                                {% else %}
+                                  <span class="mini-cart-item-property-value">
+                                    {{ property.last }}
+                                  </span>
+                                {% endif %}
+                              </span>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                  </td>
+                  <td class="mini-cart-item-qty">
+                    <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
+                      {{ 'general.general.quantity' | t }}
+                    </label>
+                    <quantity-input class="quantity">
+                      <button class="quantity__button" name="minus" type="button">
+                        <span class="visually-hidden">{{ 'general.general.decrease' | t }}</span>
+                        {% render 'icon' with 'minus' %}
+                      </button>
+                      <input class="quantity__input"
+                        type="number"
+                        name="updates[]"
+                        value="{{ item.quantity }}"
+                        min="0"
+                        aria-label="{{ 'general.general.quantity' | t }}"
+                        id="Quantity-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
+                      >
+                      <button class="quantity__button" name="plus" type="button">
+                        <span class="visually-hidden">{{ 'general.general.increase' | t }}</span>
+                        {% render 'icon' with 'plus' %}
+                      </button>
+                    </quantity-input>
+                  </td>
+                  <td class="mini-cart-item-remove">
+                    <mini-cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                      <a href="{{ item.url_to_remove }}">
+                        {{ 'cart.remove' | t }}
+                      </a>
+                    </mini-cart-remove-button>
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </form>
+      </div>
+    {%- else -%}
+      <p class="mini-cart-empty-message">{{ 'cart.empty' | t }}</p>
+    {%- endif -%}
+  </div>
+</div>
