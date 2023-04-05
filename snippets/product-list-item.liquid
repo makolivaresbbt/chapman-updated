@@ -4,7 +4,6 @@
 {% assign stockLevelOverlayThreshold = stockLevelOverlayThreshold | default: nil %}
 {% assign productTextStyle = settings.product_text_style %}
 {% assign productImageFlip = productImageFlip | default: settings.product_image_flip %}
-{% assign myMetafield = product.metafields.meta.product_badge.badges %}
 
 {% if template contains 'product' %}
   {% assign item = prod %}
@@ -45,7 +44,7 @@
 {% endif %}
 
 <{{ elementType }} class="product-list-item">
-
+  {% assign myMetafield = product.metafields.meta.product_badge.badges %}
   {% assign isSearch = false %}
   {% if template contains 'search' %}
     {% assign isSearch = true %}
