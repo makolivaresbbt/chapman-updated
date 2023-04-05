@@ -9,6 +9,7 @@
 
     <div class="collection-details">
       <h1>{{ collection.title }}</h1>
+      {{ collection.products_count }}
       {% if collection.description != blank %}
         <div class="collection-description rte">
          {{ collection.description | strip_html | truncatewords: 20 }}
