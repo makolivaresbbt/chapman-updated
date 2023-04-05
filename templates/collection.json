@@ -6,10 +6,13 @@
         "product_grid_layout": "uniform",
         "products_pagination_method": "standard-pagination",
         "products_in_row": 3,
-        "rows": 12,
-        "show_featured_image": true,
+        "rows": 20,
+        "show_featured_image": false,
         "collection_sorting": true,
         "collection_filtering": true,
+        "collection_filter_link_list_1": "",
+        "collection_filter_link_list_2": "",
+        "collection_filter_link_list_3": "",
         "stock_level_overlay": false,
         "stock_level_overlay_range": 10
       }
