@@ -4,6 +4,7 @@
 {% assign stockLevelOverlayThreshold = stockLevelOverlayThreshold | default: nil %}
 {% assign productTextStyle = settings.product_text_style %}
 {% assign productImageFlip = productImageFlip | default: settings.product_image_flip %}
+{% assign myMetafield = product.metafields.meta.product_badge.badge %}
 
 {% if template contains 'product' %}
   {% assign item = prod %}
