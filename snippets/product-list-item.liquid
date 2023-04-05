@@ -71,7 +71,9 @@
         only-image
       {%- endif -%}
     {%- endcapture -%}
-    <div class="product-badges">{{ productBadges }}</div>
+    {% if productBadges %}
+      <div class="product-badges">{{ productBadges }}</div>
+    {% endif %}
     <figure class="product-list-item-thumbnail
       {% unless item.featured_media %}product-list-item-no-image{% endunless %}"
       {% if secondaryImage %}style="background-image:url({{ item.media[1].preview_image | img_url: '600x600' }})"{% endif %}
