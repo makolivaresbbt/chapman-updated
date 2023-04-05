@@ -70,7 +70,7 @@
       only-image
     {%- endif -%}
   {%- endcapture -%}
-  {% for metaobject in productBadges.values %}
+  {% for metaobject in productBadges %}
     {{ metaobject.field }}
     {{ metaobject.field.value }}
   {% endfor %}
