@@ -28,6 +28,7 @@
     "
     data-product-gallery-viewport
   >
+    {% assign productBadges = product.metafields.meta.product_badge.value.title %}
     {% assign models = product.media | where: 'media_type', 'model' %}
     {%- if models.size > 0 -%}
       <script>
@@ -36,6 +37,9 @@
       </script>
     {%- endif -%}
     {% assign first_model = models | first %}
+    {% if productBadges %}
+      <div class="product-badges">{{ productBadges }}</div>
+    {% endif %}
     {% for media in product.media %}
       <figure
         class="product-gallery--viewport--figure"
