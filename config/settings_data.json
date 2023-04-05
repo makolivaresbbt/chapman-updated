@@ -101,7 +101,7 @@
           "center_logo_mobile": false,
           "logo_max_width_mobile": 110,
           "cart_icon": "shopping_cart",
-          "quantity_style": "dot",
+          "quantity_style": "number",
           "enable_live_search": true,
           "search_results_layout": "comfortable",
           "search_results_display": "products",
