@@ -4,6 +4,7 @@
 {% assign stockLevelOverlayThreshold = stockLevelOverlayThreshold | default: nil %}
 {% assign productTextStyle = settings.product_text_style %}
 {% assign productImageFlip = productImageFlip | default: settings.product_image_flip %}
+{% assign myMetafield = product.metafields.meta.product_badge %}
 
 {% if template contains 'product' %}
   {% assign item = prod %}
@@ -44,7 +45,7 @@
 {% endif %}
 
 <{{ elementType }} class="product-list-item">
-  {% assign myMetafield = product.metafields.meta.product_badge.badges %}
+
   {% assign isSearch = false %}
   {% if template contains 'search' %}
     {% assign isSearch = true %}
@@ -70,7 +71,8 @@
       only-image
     {%- endif -%}
   {%- endcapture -%}
-  {{ product.metafields.meta.product_badge.badge }}
+  {{ myMetafield }}
+  {{ product.metafields.meta.product_badge.badges }}
   <figure class="product-list-item-thumbnail
     {% unless item.featured_media %}product-list-item-no-image{% endunless %}"
     {% if secondaryImage %}style="background-image:url({{ item.media[1].preview_image | img_url: '600x600' }})"{% endif %}
