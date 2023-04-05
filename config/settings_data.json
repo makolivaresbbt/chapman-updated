@@ -100,7 +100,7 @@
           "logo_mobile": "shopify:\/\/shop_images\/Chapman_Logo_Header.png",
           "center_logo_mobile": false,
           "logo_max_width_mobile": 110,
-          "cart_icon": "bag",
+          "cart_icon": "shopping_cart",
           "quantity_style": "dot",
           "enable_live_search": true,
           "search_results_layout": "comfortable",
