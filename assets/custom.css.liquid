@@ -1,3 +1,140 @@
-body {
-  display: none
+.home-feature-image.hover-zoom-true {
+  overflow: hidden;
+}
+
+.home-feature-image.hover-zoom-true img {
+  transition: 0.3s all ease-in;
+  cursor: pointer;
+}
+
+.home-feature-image.hover-zoom-true:hover img {
+  transform: scale(1.1);
+  transition: 0.3s all ease-in;
+}
+
+.collection-sorting {
+    margin-left: 0;
+}
+
+.collection-viewing-parameters {
+  align-items: center;
+}
+  
+.collection-product-count {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.collection-filtering,
+.collection-sorting  {
+  z-index: 9;
+}
+.product-list-item__wrapper {
+    overflow: hidden;
+    position: relative
+}
+.product-badges {
+    position: absolute;
+    z-index: 9;
+    width: 40%;
+    padding: 10px;
+    background: #898987;
+    color: #FFF;
+    left: 0;
+    top: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: right;
+}
+
+.recommended-products .product-badges,
+.home-featured-collection-list .product-badges{
+  left: 0;
+}
+
+.product-gallery {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-gallery .product-badges {
+    left: 0;
+    top: 40px;
+}
+
+.qimify-minicart-header,
+.qimify-minicart-product-title a{
+  font-family: "Optima nova",sans-serif;
+}
+
+.qimify-minicart-product-price {
+  font-family: "Avenir Next", sans-serif;
+  visibility: hidden;
+}
+
+.qimify-minicart-btn {
+  font-family: "Century Gothic", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.qimify-minicart-dropdown {
+    position: fixed !important;
+    top: 69.31px !important;
+}
+.ptt-add-button {
+    left: 0 !important;
+    transform: translate(0, 0) !important;
+}
+.smart-payment-buttons .add-to-cart:not(.disabled), 
+.complementary-products .flickity-prev-next-button, 
+.button.secondary, .submit.secondary, input[type=submit].secondary, 
+input[type=button].secondary {
+    color: #FFF;
+    background: #6f5439;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-to-cart svg {
+  margin-right: 10px;
+}
+.payment-buttons-container .shopify-payment-button__button--unbranded {
+    color: #6f5439;
+    cursor: pointer;
+    background: #Fff;
+    border: 1px solid #6f5439;
+}
+.payment-buttons-container .shopify-payment-button__button--unbranded:hover {
+    color: #FFF;
+}
+
+.cart-contact-details {
+  font-size: 14px
+}
+
+@media screen and (max-width: 1112px) {
+  .recommended-products .product-badges, 
+  .home-featured-collection-list .product-badges,
+  .product-badges {
+      left: 0;
+      transform: rotate(0);
+  }
+  .collection-product-count {
+      position: relative;
+      top: 0;
+      text-align: center;
+      width: auto;
+      margin-left: 20px
+  }
+}
+@media screen and (max-width: 575px) {
+  .product-badges {
+    width: 100%;
+    top: 0;
+  }
+  .collection-product-count {
+      margin-left: 0;
+  }
 }
