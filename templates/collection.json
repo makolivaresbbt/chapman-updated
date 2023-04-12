@@ -9,7 +9,7 @@
         "rows": 5,
         "show_featured_image": false,
         "collection_sorting": true,
-        "collection_filtering": true,
+        "collection_filtering": false,
         "stock_level_overlay": false,
         "stock_level_overlay_range": 10
       }
