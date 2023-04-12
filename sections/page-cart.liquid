@@ -61,6 +61,11 @@
           <span class="money" data-cart-total-price>{{ cart.total_price | money }}</span>
         </p>
         <p class="cart-message">{{ taxes_shipping_checkout }}</p>
+          {% if section.settings.cart_shipment_date %}
+            <div class="shipment-details">
+                <p>Expected delivery date: {{ cart_shipment_date }}</p>
+            </div>
+          {% endif %}
         <div class="cart-checkout-buttons">
           <noscript>
             <input class="cart-update-button secondary" type="submit" name="update" value="{{ 'cart.update' | t }}">
