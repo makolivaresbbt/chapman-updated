@@ -116,12 +116,11 @@
                       {% endfor %}
 
                       {% assign currentTagsHandles = currentTagsHandles | split: '|' %}
-
+                
                       {% for link in linklists[name].links %}
-                        <!-- {{ link.object | json }} -->
-
                         {% assign tagHandle = link.title | handleize %}
-						            {% assign tagTitle = link.title | downcase %}
+						{% assign tagTitle = link.title | downcase %}
+                        
                         {% if collection.all_tags contains link.title or collection.all_tags contains tagTitle %}
                           {% if currentTagsHandles contains tagHandle %}
                             <option value="{{ tagHandle }}" selected>{{ link.title }}</option>
