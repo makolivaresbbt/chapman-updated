@@ -24,7 +24,10 @@ jQuery(function ($) {
             console.log("sync notes: " + value);
         });
     }
+
+    $(".template-product .product-options, .template-product .product-quantity ").wrapAll('<div class="product-options__wrapper" />');
 });
+
 function debounce(fn, wait) {
   let t;
   return (...args) => {
