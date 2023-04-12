@@ -18,31 +18,31 @@
         "gallery": {
           "type": "gallery",
           "settings": {
-            "position": "top"
-          }
-        },
-        "variant_selection": {
-          "type": "variant_selection",
-          "settings": {
-            "position": "top"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "position": "top"
-          }
-        },
-        "form": {
-          "type": "form",
-          "settings": {
-            "position": "top"
+            "position": "left"
           }
         },
         "description": {
           "type": "description",
           "settings": {
-            "position": "top"
+            "position": "right"
+          }
+        },
+        "variant_selection": {
+          "type": "variant_selection",
+          "settings": {
+            "position": "right"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "position": "right"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "position": "right"
           }
         }
       },
@@ -50,10 +50,10 @@
         "title",
         "vendor",
         "gallery",
+        "description",
         "variant_selection",
         "price",
-        "form",
-        "description"
+        "form"
       ],
       "settings": {
         "enable_zoom": true,
