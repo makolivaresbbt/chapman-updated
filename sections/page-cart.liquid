@@ -40,7 +40,7 @@
           {% if section.settings.cart_special_instructions %}
             <div class="cart-instructions">
               <p>{{ 'cart.special_instructions' | t }}</p>
-              <textarea name="note" rows="4">{{ cart.note }}</textarea>
+              <input type="text" name="note">
             </div>
           {% endif %}
 
