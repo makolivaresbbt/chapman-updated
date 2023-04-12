@@ -1,1 +1,18 @@
-{"sections":{"main":{"type":"page-cart","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "page-cart",
+      "settings": {
+        "enable_checkout_lock_icon": false,
+        "cart_special_instructions": true,
+        "cart_shipping_calculator": true,
+        "shipping_calculator_default_country": "United States",
+        "cart_contact_email": "Georgia@chapmanstore.co.nz",
+        "cart_contact_number": "03 972 7920"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
