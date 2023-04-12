@@ -6,13 +6,13 @@
         "title": {
           "type": "title",
           "settings": {
-            "position": "top"
+            "position": "right"
           }
         },
         "vendor": {
           "type": "vendor",
           "settings": {
-            "position": "top"
+            "position": "right"
           }
         },
         "gallery": {
