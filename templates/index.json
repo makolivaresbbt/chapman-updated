@@ -31,6 +31,7 @@
     },
     "2a60ac39-549c-4482-8617-98a37ec4396b": {
       "type": "pxs-rich-text",
+      "disabled": true,
       "blocks": {
         "template--18477567541539__2a60ac39-549c-4482-8617-98a37ec4396b-168058320860d659fd-0": {
           "type": "text",
@@ -96,7 +97,7 @@
       ],
       "settings": {
         "title": "",
-        "border": false,
+        "border": true,
         "text-shadow": true,
         "zoom-hover": true
       }
