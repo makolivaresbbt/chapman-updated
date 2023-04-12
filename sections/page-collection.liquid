@@ -82,6 +82,88 @@
             </div>
           </div>
         {% endif %}
+      {% if collection.handle != blank and collectionFiltering %}
+
+          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
+
+            {% assign tagLinkLists = "collection_filter_link_list_1|collection_filter_link_list_2|collection_filter_link_list_3" | split: "|" %}
+            {% assign availableLinks = false %}
+
+            {% for list in tagLinkLists %}
+
+              {% assign name = section.settings[list] %}
+
+              {% if linklists[name].links.size > 0 %}
+
+                {% assign availableLinks = true %}
+
+                <div class="collection-filter">
+                  <div class="select-wrapper">
+                    <label class="selected-text">{{ linklists[name].title }}: <strong>{{ 'collections.collection.any_tag' | t }}</strong></label>
+                    <select>
+                      <option value="any">{{ 'collections.collection.any_tag' | t }}</option>
+
+                      {% assign currentTagsHandles = '' %}
+
+                      {% for tag in current_tags %}
+                        {% assign tagHandle = tag | handleize %}
+
+                        {% if forloop.index == 1 %}
+                          {% assign currentTagsHandles = tagHandle %}
+                        {% else %}
+                          {% assign currentTagsHandles = currentTagsHandles | append: '|' | append: tagHandle %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {% assign currentTagsHandles = currentTagsHandles | split: '|' %}
+
+                      {% for link in linklists[name].links %}
+                        <!-- {{ link.object | json }} -->
+
+                        {% assign tagHandle = link.title | handleize %}
+						            {% assign tagTitle = link.title | downcase %}
+                        {% if collection.all_tags contains link.title or collection.all_tags contains tagTitle %}
+                          {% if currentTagsHandles contains tagHandle %}
+                            <option value="{{ tagHandle }}" selected>{{ link.title }}</option>
+                          {% else %}
+                            <option value="{{ tagHandle }}">{{ link.title }}</option>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+            {% if availableLinks == false and collection.tags.size > 0 %}
+              {% comment %}
+                There were no links found in any of the link lists
+              {% endcomment %}
+
+              <div class="collection-filter">
+                <div class="select-wrapper">
+                  <label class="selected-text">{{ 'collections.collection.tags_label' | t }}: <strong>{{ 'collections.collection.any_tag' | t }}</strong></label>
+                  <select>
+                    <option value="any">{{ 'collections.collection.any_tag' | t }}</option>
+                    {% for tag in collection.tags %}
+                      {% if current_tags contains tag %}
+                        <option value="{{ tag | handleize }}" selected>{{ tag }}</option>
+                      {% else %}
+                        <option value="{{ tag | handleize }}">{{ tag }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
+
+          {% if current_tags.size > 0 %}
+            <span class="collection-remove-filter">{{ 'collections.collection.reset_tags' | t }}</span>
+          {% endif %}
+        {% endif %}
         <div class="collection-product-count">Product Available: {{ collection.products_count }}</div>
       </div>
       {% if collectionFiltering %}
