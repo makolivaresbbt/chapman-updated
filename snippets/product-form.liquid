@@ -29,7 +29,6 @@
     <div class="product-submit" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
       <span class="payment-buttons-container">
         <span class="product__atc-wrapper {% unless variant.available %}hidden{% endunless %}" data-atc-available>
-          <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
           <button type="submit" form="{{ form_id }}" value="Add to cart">Add to Cart</button>
           <link itemprop="availability" href="http://schema.org/InStock">
 
