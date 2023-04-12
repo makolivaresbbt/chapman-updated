@@ -3,14 +3,14 @@
     "main": {
       "type": "page-product",
       "blocks": {
-        "title": {
-          "type": "title",
+        "vendor": {
+          "type": "vendor",
           "settings": {
             "position": "right"
           }
         },
-        "vendor": {
-          "type": "vendor",
+        "title": {
+          "type": "title",
           "settings": {
             "position": "right"
           }
@@ -47,8 +47,8 @@
         }
       },
       "block_order": [
-        "title",
         "vendor",
+        "title",
         "gallery",
         "description",
         "variant_selection",
