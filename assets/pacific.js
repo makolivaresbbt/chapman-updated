@@ -30618,6 +30618,13 @@ if (ageGatePage) {
 ;
 //# sourceMappingURL=pacific.js.map?1673903616287
 
+function TemplateCollection_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function TemplateCollection_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function TemplateCollection_createClass(Constructor, protoProps, staticProps) { if (protoProps) TemplateCollection_defineProperties(Constructor.prototype, protoProps); if (staticProps) TemplateCollection_defineProperties(Constructor, staticProps); return Constructor; }
+
+
 var TemplateCollection_TemplateCollection = /*#__PURE__*/function () {
   function TemplateCollection(_ref) {
     var el = _ref.el;
