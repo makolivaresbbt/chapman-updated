@@ -83,7 +83,7 @@
           </div>
         {% endif %}
 
-        {% if settings.collection_filter_link_list_1 or settings.collection_filter_link_list_2 or settings.collection_filter_link_list_3 %}
+        {% if section.settings.collection_filter_link_list_1 or section.settings.collection_filter_link_list_2 or section.settings.collection_filter_link_list_3 %}
           <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
 
             {% assign tagLinkLists = "collection_filter_link_list_1|collection_filter_link_list_2|collection_filter_link_list_3" | split: "|" %}
