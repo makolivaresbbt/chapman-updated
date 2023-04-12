@@ -19,6 +19,7 @@
   <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
   <link rel="preload" href="{{ 'custom.css' | asset_url }}" as="style">
   <link rel="preload" href="{{ 'pacific.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
 
   <title>
     {{- page_title -}}
@@ -235,6 +236,8 @@
     data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
     defer>
   </script>
+
+  <script src="{{ 'theme.js' | asset_url }}"></script>
 
   <form id="checkout_form" action="{{ routes.cart_url }}" method="POST" style="display: none;"></form>
 
