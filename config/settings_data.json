@@ -48,13 +48,13 @@
       "pxs-announcement-bar": {
         "type": "pxs-announcement-bar",
         "settings": {
-          "show_announcement": false,
+          "show_announcement": true,
           "announcement_home_only": false,
-          "announcement_text": "Call attention to a special discount, feature, or promotion here.",
-          "announcement_text_mobile": "Use less text on mobile!",
-          "announcement_link": "",
-          "announcement_color": "#ffffff",
-          "announcement_background": "#000000"
+          "announcement_text": "Enjoy complimentary shipping on orders over $100",
+          "announcement_text_mobile": "Enjoy complimentary shipping on orders over $100",
+          "announcement_link": "shopify:\/\/collections\/all",
+          "announcement_color": "#000000",
+          "announcement_background": "#e6e1d6"
         }
       },
       "footer": {
