@@ -3,6 +3,7 @@
     "main": {
       "type": "page-cart",
       "settings": {
+        "cart_shipment_date": "3 to 5 days (NZ)",
         "enable_checkout_lock_icon": false,
         "cart_special_instructions": true,
         "cart_shipping_calculator": true,
