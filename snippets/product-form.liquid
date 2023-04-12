@@ -29,7 +29,7 @@
     <div class="product-submit" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
       <span class="payment-buttons-container">
         <span class="product__atc-wrapper {% unless variant.available %}hidden{% endunless %}" data-atc-available>
-          <button type="submit" class="add-to-cart" form="{{ form_id }}" value="Add to cart">Add to Cart {% render 'icon' with 'shopping-cart' %}</button>
+          <button type="submit" class="add-to-cart" form="{{ form_id }}" value="Add to cart">{% render 'icon' with 'shopping-cart' %} Add to Cart</button>
           <link itemprop="availability" href="http://schema.org/InStock">
 
           {% if show_dynamic_checkout_button %}
