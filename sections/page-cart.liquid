@@ -93,6 +93,17 @@
     {{- 'layout.header.cart_item_count.one' | t | append: '|' }}{{ 'layout.header.cart_item_count.other' | t -}}
   {%- endcapture -%}
 
+  {% if section.settings.cart_contact_email or section.settings.cart_contact_number %}
+    <div class="cart-contact-details">
+        {% if section.settings.cart_contact_email %}
+          <a href="mailto:{{ section.settings.cart_contact_email }}">{{ section.settings.cart_contact_email }}</a>
+        {% endif %}
+        {% if section.settings.cart_contact_number %}
+          <a href="tel:{{ section.settings.cart_contact_number }}">{{ section.settings.cart_contact_number }}</a>
+        {% endif %}
+    </div>
+  {% endif %}
+
   <script>
     window.sectionJSON = {{ section.settings | json }};
     window.cartTextJSON = {{ cartText | split: '|' | json }};
@@ -133,6 +144,16 @@
       "label": "Default country",
       "info": "If a customer is logged in, their default shipping address country will be selected.",
       "default": "United States"
+    },
+    {
+      "type": "text",
+      "id": "cart_contact_email",
+      "label": "Store Contact Email"
+    },
+    {
+      "type": "text",
+      "id": "cart_contact_number",
+      "label": "Store Contact Number"
     }
   ]
 }
