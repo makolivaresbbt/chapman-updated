@@ -95,6 +95,7 @@
 
   {% if section.settings.cart_contact_email or section.settings.cart_contact_number %}
     <div class="cart-contact-details">
+        <h3>You may contact us at:</h3>
         {% if section.settings.cart_contact_email %}
           <a href="mailto:{{ section.settings.cart_contact_email }}">{{ section.settings.cart_contact_email }}</a>
         {% endif %}
