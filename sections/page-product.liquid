@@ -17,20 +17,13 @@
 <div class="product-wrap clearfix" itemscope itemtype="http://schema.org/Product">
   {% if product != blank %}
     {% form 'product', product, class: 'product', id: product_form_id, data-product-form: '' %}
-      <div class="column--left">
-        {%
-            render 'product-blocks',
-            product: product,
-            section: section,
-        %}
-      </div>
-      <div class="column--right">
-        {%
-          render 'product-blocks',
-          form: form,
-          form_id: product_form_id,
+      {%
+        render 'product-blocks',
+        product: product,
+        section: section,
+        form: nil,
+        form_id: product_form_id,
       %}
-      </div>
     {% endform %}
   {% else %}
     <div class="product" data-product-form>
