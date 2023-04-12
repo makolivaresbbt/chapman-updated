@@ -82,7 +82,6 @@
             </div>
           </div>
         {% endif %}
-      {% if collectionFiltering %}
 
           <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
 
@@ -163,7 +162,6 @@
           {% if current_tags.size > 0 %}
             <span class="collection-remove-filter">{{ 'collections.collection.reset_tags' | t }}</span>
           {% endif %}
-        {% endif %}
         <div class="collection-product-count">Product Available: {{ collection.products_count }}</div>
       </div>
       {% if collectionFiltering %}
