@@ -15,6 +15,30 @@
             "position": "right"
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {
+            "position": "right"
+          }
+        },
+        "variant_selection": {
+          "type": "variant_selection",
+          "settings": {
+            "position": "right"
+          }
+        },
+        "1d4aaf63-5c63-4702-ae03-d0591b67edf7": {
+          "type": "quantity",
+          "settings": {
+            "position": "right"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "position": "right"
+          }
+        },
         "gallery": {
           "type": "gallery",
           "settings": {
@@ -26,34 +50,17 @@
           "settings": {
             "position": "right"
           }
-        },
-        "variant_selection": {
-          "type": "variant_selection",
-          "settings": {
-            "position": "right"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "position": "right"
-          }
-        },
-        "form": {
-          "type": "form",
-          "settings": {
-            "position": "right"
-          }
         }
       },
       "block_order": [
         "vendor",
         "title",
-        "gallery",
-        "description",
-        "variant_selection",
         "price",
-        "form"
+        "variant_selection",
+        "1d4aaf63-5c63-4702-ae03-d0591b67edf7",
+        "form",
+        "gallery",
+        "description"
       ],
       "settings": {
         "enable_zoom": true,
