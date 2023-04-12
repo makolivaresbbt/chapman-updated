@@ -191,7 +191,7 @@ input[type=button].secondary {
 ul.product-list-item-variants {
     position: absolute;
     top: 25%;
-    right: 0;
+    right: -100%;
     z-index: 9;
     padding: 10px;
     background: #a69582;
@@ -199,6 +199,9 @@ ul.product-list-item-variants {
     width: 50px;
 }
 
+.product-list-item__wrapper:hover > .product-list-item-variants {
+  right: 0;
+}
 @media screen and (max-width: 1112px) {
   .recommended-products .product-badges, 
   .home-featured-collection-list .product-badges,
