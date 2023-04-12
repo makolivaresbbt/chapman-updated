@@ -83,6 +83,7 @@
           </div>
         {% endif %}
 
+        {% if settings.collection_filter_link_list_1 or settings.collection_filter_link_list_2 or settings.collection_filter_link_list_3 %}
           <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
 
             {% assign tagLinkLists = "collection_filter_link_list_1|collection_filter_link_list_2|collection_filter_link_list_3" | split: "|" %}
@@ -162,6 +163,7 @@
           {% if current_tags.size > 0 %}
             <span class="collection-remove-filter">{{ 'collections.collection.reset_tags' | t }}</span>
           {% endif %}
+        {% endif %}
         <div class="collection-product-count">Product Available: {{ collection.products_count }}</div>
       </div>
       {% if collectionFiltering %}
