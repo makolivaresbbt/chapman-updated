@@ -9,7 +9,7 @@
         "rows": 5,
         "show_featured_image": false,
         "collection_sorting": true,
-        "collection_filtering": true,
+        "collection_filtering": false,
         "collection_filter_link_list_1": "category",
         "collection_filter_link_list_2": "brands",
         "collection_filter_link_list_3": "",
