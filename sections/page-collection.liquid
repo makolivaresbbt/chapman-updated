@@ -36,7 +36,7 @@
     {% if collectionSorting or collectionFiltering %}
       <div class="collection-viewing-parameters">
         {% if collection.handle != blank and collectionFiltering and collection.filters.size > 0 %}
-          <div class="collection-filter" data-fallback-url="{{ collection.url }}">
+          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
             {%
               render 'faceted-filters',
               filters: collection.filters,
@@ -84,7 +84,7 @@
         {% endif %}
 
         {% if section.settings.collection_filter_link_list_1 or section.settings.collection_filter_link_list_2 or section.settings.collection_filter_link_list_3 %}
-          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
+          <div class="collection-filtering__wrapper" data-fallback-url="{{ collection.url }}">
 
             {% assign tagLinkLists = "collection_filter_link_list_1|collection_filter_link_list_2|collection_filter_link_list_3" | split: "|" %}
             {% assign availableLinks = false %}
