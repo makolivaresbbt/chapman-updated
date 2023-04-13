@@ -80,11 +80,6 @@
         only-image
       {%- endif -%}
     {%- endcapture -%}
-    {% if onSale and productBadges %}
-      <div class="product-badges">{{ saleText }}<br>{{ productBadges }}</div>
-    {% elsif productBadges %}
-      <div class="product-badges">{{ productBadges }}</div>
-    {% endif %}
     <figure class="product-list-item-thumbnail
       {% unless item.featured_media %}product-list-item-no-image{% endunless %}"
       {% if secondaryImage %}style="background-image:url({{ item.media[1].preview_image | img_url: '600x600' }})"{% endif %}
@@ -107,6 +102,11 @@
       </a>
   
       {% if item.available %}
+        {% if onSale and productBadges %}
+          <div class="product-badges">{{ saleText }}<br>{{ productBadges }}</div>
+        {% elsif productBadges %}
+          <div class="product-badges">{{ productBadges }}</div>
+        {% endif %}
         {% if stockLevelOverlay
           and infinity == false
           and total < threshold
