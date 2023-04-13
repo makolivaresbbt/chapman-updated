@@ -271,7 +271,7 @@ jQuery( function ($) {
     if (collectionPage.length <= 0) {
         return;
     }
-    var fallback = $(".collection-filtering").data("fallback-url");
+    var fallbackURL = $(".collection-filtering").data("fallback-url");
     var selectContainer = $(".collection-filter");
     var newTags = [];
     selectContainer.each( function (e) {
@@ -288,9 +288,17 @@ jQuery( function ($) {
 
           if (newTags.length) {
             var tags = newTags.join('+');
-            var filterURL = "".concat(fallback, "/").concat(tags);
+            var filterURL = "".concat(fallbackURL, "/").concat(tags);
             window.location.href = filterURL;
+          } else {
+            resetFilter();
           }
         })
     });
-})
+
+
+  function resetFilter() {
+      var fallback = "".concat(fallbackURL).concat(window.location.search);
+      window.location.href = fallback;
+    }
+});
