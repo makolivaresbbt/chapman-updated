@@ -36,7 +36,7 @@
     {% if collectionSorting or collectionFiltering %}
       <div class="collection-viewing-parameters">
         {% if collection.handle != blank and collectionFiltering and collection.filters.size > 0 %}
-          <div class="collection-filtering" data-fallback-url="{{ collection.url }}">
+          <div class="collection-filter" data-fallback-url="{{ collection.url }}">
             {%
               render 'faceted-filters',
               filters: collection.filters,
