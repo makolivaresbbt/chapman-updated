@@ -80,8 +80,8 @@
         only-image
       {%- endif -%}
     {%- endcapture -%}
-    {% if onSale %}
-      <div class="product-badges">{{ saleText }}</div>
+    {% if onSale and productBadges %}
+      <div class="product-badges">{{ saleText }}<br>{{ productBadges }}</div>
     {% elsif productBadges %}
       <div class="product-badges">{{ productBadges }}</div>
     {% endif %}
