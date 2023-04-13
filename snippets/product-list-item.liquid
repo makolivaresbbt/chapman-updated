@@ -112,15 +112,15 @@
           and total < threshold
           and onSale
         %}
-          <span class="product-list-item-badge meta sale">{{ saleText }}<br>{{ stockText }}</span>
+          <span class="product-badges meta sale">{{ saleText }}<br>{{ stockText }}</span>
         {% elsif stockLevelOverlay
           and infinity == false
           and total < threshold
         %}
-          <span class="product-list-item-badge meta inventory">{{ stockText }}</span>
+          <span class="product-badges meta inventory">{{ stockText }}</span>
         {% endif %}
       {% else %}
-        <span class="product-list-item-badge inventory">{{ 'products.product.sold_out' | t }}</span>
+        <span class="product-badges inventory">{{ 'products.product.sold_out' | t }}</span>
       {% endif %}
     </figure>
   
