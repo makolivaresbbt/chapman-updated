@@ -274,6 +274,7 @@ jQuery( function ($) {
     var fallbackURL = $(".collection-filtering").data("fallback-url");
     var selectContainer = $(".collection-filter");
     var newTags = [];
+  
     selectContainer.each( function (e) {
         var selectField = $(this).find('select');
         selectField.on('change', function () {
@@ -306,5 +307,10 @@ jQuery( function ($) {
   function resetFilter() {
       var fallback = "".concat(fallbackURL).concat(window.location.search);
       window.location.href = fallback;
+  }
+
+  function filterValue() {
+    var url = window.location.href;
+    var lastSegment = url.split('/').pop();
   }
 });
