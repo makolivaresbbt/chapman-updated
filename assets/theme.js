@@ -263,3 +263,20 @@ jQuery(function ($) {
 		});
 	}
 });
+
+// Filter Function
+jQuery( function ($) {
+    var collectionPage = $(".template-collection");
+
+    if (collectionPage.length) {
+        var selectContainer = $(".collection-filter");
+
+        selectContainer.each( function (e) {
+            var selectField = $(this).find('select');
+            selectField.on('change', function () {
+                $(this).closest('strong').text($(this).val())
+            })
+        })
+
+    }
+})
