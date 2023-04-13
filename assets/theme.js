@@ -274,7 +274,7 @@ jQuery( function ($) {
         selectContainer.each( function (e) {
             var selectField = $(this).find('select');
             selectField.on('change', function () {
-                $(this).parent().find('strong').text($(this).text())
+                $(this).parent().find('strong').text($(this).val().text())
             })
         })
 
