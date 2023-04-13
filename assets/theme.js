@@ -319,15 +319,17 @@ jQuery( function ($) {
       var $select = $('.collection-filter select');
     
       $select.each(function() {
-      var $selectField = $(this);
-      var $strong = $selectField.parent().find('strong');
-  
-      // check if the last segment matches any of the options in the select field
-      var $matchingOption = $select.find('option[value="' + lastSegment + '"]');
-      if ($matchingOption.length > 0) {
-        // update the corresponding strong tag with the selected option's text
-        $strong.text($matchingOption.text());
-      }
+        var $selectField = $(this);
+        var $strong = $selectField.parent().find('strong');
+    
+        // check if the last segment matches any of the options in the select field
+        var $matchingOption = $selectField.find('option[value="' + lastSegment + '"]');
+        if ($matchingOption.length > 0) {
+          // update the corresponding strong tag with the selected option's text
+          $strong.text($matchingOption.text());
+        } else {
+          $strong.text('Any');
+        }
     });
   }
 });
