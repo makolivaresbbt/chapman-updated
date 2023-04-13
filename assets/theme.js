@@ -277,6 +277,7 @@ jQuery( function ($) {
     selectContainer.each( function (e) {
         var selectField = $(this).find('select');
         selectField.on('change', function () {
+          
             var optionsText = this.options[this.selectedIndex].text;
             $(this).parent().find('strong').text(optionsText);
           
