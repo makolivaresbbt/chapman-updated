@@ -122,6 +122,12 @@
  <!--end-boost-pfs-filter-css-->
 
  
+
+ <!--begin-boost-pfs-filter-css-->
+   {% render 'boost-pfs-style' %}
+ <!--end-boost-pfs-filter-css-->
+
+ 
 </head>
 
 {% assign sidebar = false %}
@@ -264,5 +270,9 @@
 {% if shop.metafields.qimify_minicart.script_src %}
   <script type="text/javascript" src="{{ shop.metafields.qimify_minicart.script_src }}&shop={{shop.permanent_domain }}" async="async"></script>
 {% endif %}
+
+ <!--begin-boost-pfs-js-->
+   {% render 'boost-pfs' %}
+ <!--end-boost-pfs-js-->
 </body>
 </html>
