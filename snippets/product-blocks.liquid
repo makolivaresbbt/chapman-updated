@@ -122,7 +122,6 @@
         {% when 'description' %}
           {% assign next_block_type = section.blocks[forloop.index].type %}
           {% assign class = first_block_class %}
-          {% include 'product-banner' %}
           {% unless next_block_type == 'callout' %}
             {% assign class = first_block_class | append: border_class %}
           {% endunless %}
@@ -194,6 +193,9 @@
   {% unless product_blocks == blank %}
     <div class="product__grid-{{ position }}">
       {{ product_blocks }}
+      {% if position == 'right' %}
+          {% include 'product-banner' %}
+      {% endif %}
     </div>
   {% endunless %}
 {% endfor %}
