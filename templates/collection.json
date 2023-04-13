@@ -11,7 +11,7 @@
         "collection_sorting": true,
         "collection_filtering": false,
         "collection_filter_link_list_1": "category",
-        "collection_filter_link_list_2": "brands",
+        "collection_filter_link_list_2": "",
         "collection_filter_link_list_3": "",
         "stock_level_overlay": false,
         "stock_level_overlay_range": 10
