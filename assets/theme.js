@@ -298,11 +298,14 @@ jQuery( function ($) {
     });
 
   var removeFilter = $(".collection-remove-filter");
+  
 
   removeFilter.click( function(e) {
     e.preventDefault;
     resetFilter();
-  })
+  });
+
+  filterValue();
 
   function resetFilter() {
       var fallback = "".concat(fallbackURL).concat(window.location.search);
@@ -310,7 +313,19 @@ jQuery( function ($) {
   }
 
   function filterValue() {
-    var url = window.location.href;
-    var lastSegment = url.split('/').pop();
+      var url = window.location.href;
+      var lastSegment = url.split('/').pop();
+
+      var $select = $('.collection-filter select');
+      var $strong = $('.collection-filter strong');
+    
+      // check if the last segment matches any of the options in the select field
+      var $matchingOption = $select.find('option[value="' + lastSegment + '"]');
+      if ($matchingOption.length > 0) {
+        // set the select field value to the last segment
+        $select.val(lastSegment);
+        // update the strong tag with the selected option's text
+        $strong.text($matchingOption.text());
+      }
   }
 });
