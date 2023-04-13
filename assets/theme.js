@@ -296,9 +296,15 @@ jQuery( function ($) {
         })
     });
 
+  var removeFilter = $(".collection-remove-filter");
+
+  removeFilter.click( function(e) {
+    e.preventDefault;
+    resetFilter();
+  })
 
   function resetFilter() {
       var fallback = "".concat(fallbackURL).concat(window.location.search);
       window.location.href = fallback;
-    }
+  }
 });
