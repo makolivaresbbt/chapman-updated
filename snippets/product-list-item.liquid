@@ -80,7 +80,9 @@
         only-image
       {%- endif -%}
     {%- endcapture -%}
-    {% if productBadges %}
+    {% if onSale %}
+      <div class="product-badges">{{ saleText }}</div>
+    {% elsif productBadges %}
       <div class="product-badges">{{ productBadges }}</div>
     {% endif %}
     <figure class="product-list-item-thumbnail
@@ -116,8 +118,6 @@
           and total < threshold
         %}
           <span class="product-list-item-badge meta inventory">{{ stockText }}</span>
-        {% elsif onSale %}
-          <span class="product-list-item-badge meta sale">{{ saleText }}</span>
         {% endif %}
       {% else %}
         <span class="product-list-item-badge inventory">{{ 'products.product.sold_out' | t }}</span>
