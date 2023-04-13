@@ -317,15 +317,17 @@ jQuery( function ($) {
       var lastSegment = url.split('/').pop();
 
       var $select = $('.collection-filter select');
-      var $strong = $('.collection-filter strong');
     
+      $select.each(function() {
+      var $selectField = $(this);
+      var $strong = $selectField.parent().find('strong');
+  
       // check if the last segment matches any of the options in the select field
       var $matchingOption = $select.find('option[value="' + lastSegment + '"]');
       if ($matchingOption.length > 0) {
-        // set the select field value to the last segment
-        $select.val(lastSegment);
-        // update the strong tag with the selected option's text
+        // update the corresponding strong tag with the selected option's text
         $strong.text($matchingOption.text());
       }
+    });
   }
 });
