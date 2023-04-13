@@ -37,6 +37,7 @@
 
       {% if section.settings.cart_special_instructions or section.settings.cart_shipping_calculator %}
         <div class="cart-tools">
+          {% include 'product-banner' %}
           {% if section.settings.cart_special_instructions %}
             <div class="cart-instructions">
               <p>{{ 'cart.special_instructions' | t }}</p>
