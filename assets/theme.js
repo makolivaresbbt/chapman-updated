@@ -268,16 +268,28 @@ jQuery(function ($) {
 jQuery( function ($) {
     var collectionPage = $(".template-collection");
 
-    if (collectionPage.length) {
-        var selectContainer = $(".collection-filter");
-
-        selectContainer.each( function (e) {
-            var selectField = $(this).find('select');
-            selectField.on('change', function () {
-                var optionsText = this.options[this.selectedIndex].text;
-                $(this).parent().find('strong').text(optionsText)
-            })
-        })
-
+    if (collectionPage.length <= 0) {
+        return;
     }
+    var fallback = $(".collection-filtering").data("fallback-url");
+    var selectContainer = $(".collection-filter");
+    var newTags = [];
+    selectContainer.each( function (e) {
+        var selectField = $(this).find('select');
+        selectField.on('change', function () {
+            var optionsText = this.options[this.selectedIndex].text;
+            $(this).parent().find('strong').text(optionsText);
+          
+            if ($(this).val() !== 'any') {
+              var tag = $(this).val();
+              newTags.push(tag);
+            }
+
+          if (newTags.length) {
+            var tags = newTags.join('+');
+            var filterURL = "".concat(fallback, "/").concat(tags);
+            window.location.href = filterURL;
+          }
+        })
+    });
 })
