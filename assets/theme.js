@@ -327,8 +327,6 @@ jQuery( function ($) {
         if ($matchingOption.length > 0) {
           // update the corresponding strong tag with the selected option's text
           $strong.text($matchingOption.text());
-        } else {
-          $strong.text('Any');
         }
     });
   }
