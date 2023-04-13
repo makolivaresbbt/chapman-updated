@@ -245,6 +245,47 @@ span.collection-remove-filter {
   display: none
 }
 
+.product-banner {
+    //Important because product inherit styling is globally modifying divs
+    display: flex;
+    justify-content: start;
+    border: 1px solid $black !important;
+    border-radius: 5px;
+    padding: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.product-banner .content {
+    width: 47.5%;
+    padding: .8rem;
+    text-align: center;
+}
+
+.product-banner h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "Avenir Next", sans-serif;
+    font-size: .8rem;
+}
+
+.product-banner h4 span{
+    font-size: 0.55rem;
+}
+.product-banner h4.center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-banner .divider {
+    text-align: center;
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1112px) {
   .recommended-products .product-badges, 
   .home-featured-collection-list .product-badges,
@@ -272,6 +313,13 @@ span.collection-remove-filter {
   }
   .template-cart .cart-items {
       border-bottom: 1px solid #6a6a6a;
+  }
+  .product-banner {
+      max-width: 70%;
+  }
+
+  .product-banner h4 span{
+      font-size: .7rem;
   }
 }
 @media screen and (max-width: 575px) {
