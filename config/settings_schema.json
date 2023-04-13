@@ -4,8 +4,8 @@
     "theme_name": "Pacific",
     "theme_author": "Pixel Union",
     "theme_version": "5.3.0",
-    "theme_documentation_url": "https://support.pixelunion.net/hc/en-us/sections/360004793794-Theme-settings-in-Pacific/",
-    "theme_support_url": "https://support.pixelunion.net/hc/en-us/requests/new"
+    "theme_documentation_url": "https:\/\/support.pixelunion.net\/hc\/en-us\/sections\/360004793794-Theme-settings-in-Pacific\/",
+    "theme_support_url": "https:\/\/support.pixelunion.net\/hc\/en-us\/requests\/new"
   },
   {
     "name": "Favicon",
@@ -396,7 +396,7 @@
         "type": "checkbox",
         "id": "show_payment_button",
         "label": "Show dynamic checkout button",
-        "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)",
         "default": true
       }
     ]
@@ -440,43 +440,43 @@
         "type": "text",
         "id": "social-facebook-url",
         "label": "Facebook",
-        "info": "https://www.facebook.com/shopify"
+        "info": "https:\/\/www.facebook.com\/shopify"
       },
       {
         "type": "text",
         "id": "social-twitter-url",
         "label": "Twitter",
-        "info": "https://twitter.com/shopify"
+        "info": "https:\/\/twitter.com\/shopify"
       },
       {
         "type": "text",
         "id": "social-pinterest-url",
         "label": "Pinterest",
-        "info": "https://www.pinterest.com/shopify"
+        "info": "https:\/\/www.pinterest.com\/shopify"
       },
       {
         "type": "text",
         "id": "social-instagram-url",
         "label": "Instagram",
-        "info": "https://instagram.com/shopify"
+        "info": "https:\/\/instagram.com\/shopify"
       },
       {
         "type": "text",
         "id": "social-kickstarter-url",
         "label": "Kickstarter",
-        "info": "https://www.kickstarter.com/projects/user/project"
+        "info": "https:\/\/www.kickstarter.com\/projects\/user\/project"
       },
       {
         "type": "text",
         "id": "social-vimeo-url",
         "label": "Vimeo",
-        "info": "https://vimeo.com/shopify"
+        "info": "https:\/\/vimeo.com\/shopify"
       },
       {
         "type": "text",
         "id": "social-youtube-url",
         "label": "YouTube",
-        "info": "https://www.youtube.com/user/shopify"
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
       },
       {
         "type": "text",
@@ -488,7 +488,7 @@
         "type": "text",
         "id": "social-rss-url",
         "label": "RSS",
-        "info": "http://storefront.myshopify.com/blogs/news.atom"
+        "info": "http:\/\/storefront.myshopify.com\/blogs\/news.atom"
       },
       {
         "type": "header",
@@ -531,6 +531,29 @@
         "id": "share-widget-email",
         "label": "Send by email",
         "default": false
+      }
+    ]
+  },
+  {
+    "name": "Shipping Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "banner_shipping_title",
+        "label": "Shipping Title",
+        "default": "Free Shipping"
+      },
+      {
+        "type": "text",
+        "id": "banner_shipping_criteria",
+        "label": "Shipping Criteria",
+        "default": "NZ over $100 | AU over $300"
+      },
+      {
+        "type": "text",
+        "id": "banner_dispatch_title",
+        "label": "Dispatch Title",
+        "default": "Same Day DIspatch"
       }
     ]
   }
