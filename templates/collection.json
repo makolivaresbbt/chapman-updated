@@ -6,7 +6,7 @@
         "product_grid_layout": "uniform",
         "products_pagination_method": "standard-pagination",
         "products_in_row": 3,
-        "rows": 5,
+        "rows": 12,
         "show_featured_image": false,
         "collection_sorting": true,
         "collection_filtering": false,
