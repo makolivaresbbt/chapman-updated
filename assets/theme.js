@@ -266,7 +266,7 @@ jQuery(function ($) {
 
 //Submit Product Form
 jQuery(function ($) {
-  this.$el = jquery_default()(el);
+  this.$el = $(el);
   this.el = el;
   this.sectionType = type;
   this.data = data;
