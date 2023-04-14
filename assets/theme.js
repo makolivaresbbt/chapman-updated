@@ -262,15 +262,75 @@ jQuery(function ($) {
 			$popup.removeClass('open');
 		});
 	}
-
-  var productForm = $('[data-product-form]');
-
-  productForm.each( function() {
-    $(this).on('submit', function(e) {
-      e.preventDefault();
-    })
-  })
 });
+
+//Submit Product Form
+jQuery(function ($) {
+  var productForm = $('[data-product-form]');
+  productForm.each( function () {
+    $(this).on("submit", function(e) {
+      e.preventDefault();
+      // PS custom - adding mini cart
+      var formData = this.$form.serializeArray();
+      
+      this.miniCart = document.querySelector('mini-cart');
+
+      formData.push({
+      	name: "sections",
+      	value: this.miniCart.getSectionsToRender().map((section) => section.id)
+      });
+      
+      formData.push({
+      	name: "sections_url",
+      	value: window.location.pathname
+      });
+
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: "".concat(window.Theme.routes.cart_url, "/add.js"),
+        data: formData,
+        dataType: 'json'
+      }) // On success
+      .done(function (response) {
+      if (this.enableSendToCart) {
+          window.location.href = window.Theme.routes.cart_url;
+        return;
+      }
+
+        $('.cart-count').addClass('active-cart');
+        
+        this.miniCart = document.querySelector('mini-cart');
+        this.miniCart.renderContents(response);
+
+        var message = this.data.message.replace('{{ product }}', this.product.title).replace('{{ cart_link }}', "<a href=\"".concat(window.Theme.routes.cart_url, "\">").concat(this.data.cartLink, "</a>")).replace('{{ continue_link }}', "<a href=\"".concat(window.Theme.routes.all_products_collection_url, "\">").concat(this.data.continueLink, "</a>")).replace('{{ checkout_link }}', "<form class=\"product-message__checkout-form\" action=\"".concat(window.Theme.routes.cart_url, "\" method=\"POST\"><button class=\"product-message__checkout-button\" type=\"submit\" name=\"checkout\">").concat(this.data.checkoutLink, "</button></form>"));
+
+        this.timeouts.push(setTimeout(function () {
+          this.$el.find('.product-message').html(message).addClass('success-message').removeClass('error-message');
+
+          this._updateCart();
+        }, 500));
+      }) // On failure
+      .fail(function (response) {
+        return this.handleErrors(response);
+      });
+    });
+  });
+
+  function updateCart() {
+    return Shopify.getCart(cart => {
+      $('.cart-item-count').text(cart.item_count);
+      $('.header-tools-cart').addClass('cart-has-content');
+    });
+  }
+
+  function handleErrors(response) {
+    const error = JSON.parse(response.responseText);
+    setTimeout(() => {
+      this.$el.find('.product-message').html(error.description).addClass('error-message').removeClass('success-message');
+    }, 500);
+  }
+})
 
 // Filter Function
 jQuery( function ($) {
