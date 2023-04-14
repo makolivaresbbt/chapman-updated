@@ -266,6 +266,18 @@ jQuery(function ($) {
 
 //Submit Product Form
 jQuery(function ($) {
+  this.$el = jquery_default()(el);
+  this.el = el;
+  this.sectionType = type;
+  this.data = data;
+  this.sectionId = id;
+  this.product = data.product;
+  this.cartText = data.cartText;
+  this.enableSendToCart = data.settings.enable_send_to_cart;
+  this.addToCartButton = this.el.querySelector('input.add-to-cart');
+  this.$options = this.$el.find('[data-product-option]');
+  this.$variants = this.$el.find('[data-variants]');
+  this.$form = this.$el.find('[data-product-form]');
   var productForm = $('[data-product-form]');
   productForm.each( function () {
     $(this).on("submit", function(e) {
