@@ -320,16 +320,13 @@ jQuery(function ($) {
   });
 
   function updateCart() {
-    return Shopify.getCart(cart => {
-      $('.cart-item-count').text(cart.item_count);
       $('.header-tools-cart').addClass('cart-has-content');
-    });
   }
 
   function handleErrors(response) {
     const error = JSON.parse(response.responseText);
     setTimeout(() => {
-      this.$el.find('.product-message').html(error.description).addClass('error-message').removeClass('success-message');
+      this.find('.product-message').html(error.description).addClass('error-message').removeClass('success-message');
     }, 500);
   }
 })
