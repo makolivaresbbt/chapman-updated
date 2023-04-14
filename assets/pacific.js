@@ -28898,7 +28898,7 @@ class StaticProduct {
       jquery_default().ajax({
         type: 'POST',
         url: "".concat(window.Theme.routes.cart_url, "/add.js"),
-        data: formData,
+        data: this.$form.serialize(),
         dataType: 'json'
       }) // On success
       .done(function (response) {
