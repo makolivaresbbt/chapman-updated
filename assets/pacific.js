@@ -28879,27 +28879,52 @@ class StaticProduct {
 
   _addToCart(e) {
     e.preventDefault();
-    jquery_default().ajax({
-      type: 'POST',
-      url: `${window.Theme.routes.cart_url}/add.js`,
-      data: this.$form.serialize(),
-      dataType: 'json'
-    }) // On success
-    .done(variant => {
-      if (this.enableSendToCart) {
-        window.location.href = window.Theme.routes.cart_url;
-        return;
-      }
+    var _this4 = this;
 
-      jquery_default()('.cart-count').addClass('active-cart');
-      const message = this.data.message.replace('{{ product }}', variant.title).replace('{{ cart_link }}', `<a href="${window.Theme.routes.cart_url}">${this.data.cartLink}</a>`).replace('{{ continue_link }}', `<a href="${window.Theme.routes.all_products_collection_url}">${this.data.continueLink}</a>`).replace('{{ checkout_link }}', `<button class="product-message__checkout-button" type="submit" name="checkout" form="checkout_form">${this.data.checkoutLink}</button>`);
-      this.timeouts.push(setTimeout(() => {
-        this.$el.find('.product-message').html(message).addClass('success-message').removeClass('error-message');
+      // PS custom - adding mini cart
+      var formData = this.$form.serializeArray();
+      
+      this.miniCart = document.querySelector('mini-cart');
 
-        this._updateCart();
-      }, 500));
-    }) // On failure
-    .fail(response => this._handleErrors(response));
+      formData.push({
+      	name: "sections",
+      	value: this.miniCart.getSectionsToRender().map((section) => section.id)
+      });
+      
+      formData.push({
+      	name: "sections_url",
+      	value: window.location.pathname
+      });
+
+      e.preventDefault();
+      jquery_default.a.ajax({
+        type: 'POST',
+        url: "".concat(window.Theme.routes.cart_url, "/add.js"),
+        data: formData,
+        dataType: 'json'
+      }) // On success
+      .done(function (response) {
+        if (_this4.enableSendToCart) {
+          window.location.href = window.Theme.routes.cart_url;
+          return;
+        }
+
+        jquery_default()('.cart-count').addClass('active-cart');
+        
+        this.miniCart = document.querySelector('mini-cart');
+        this.miniCart.renderContents(response);
+
+        var message = _this4.data.message.replace('{{ product }}', _this4.product.title).replace('{{ cart_link }}', "<a href=\"".concat(window.Theme.routes.cart_url, "\">").concat(_this4.data.cartLink, "</a>")).replace('{{ continue_link }}', "<a href=\"".concat(window.Theme.routes.all_products_collection_url, "\">").concat(_this4.data.continueLink, "</a>")).replace('{{ checkout_link }}', "<form class=\"product-message__checkout-form\" action=\"".concat(window.Theme.routes.cart_url, "\" method=\"POST\"><button class=\"product-message__checkout-button\" type=\"submit\" name=\"checkout\">").concat(_this4.data.checkoutLink, "</button></form>"));
+
+        _this4.timeouts.push(setTimeout(function () {
+          _this4.$el.find('.product-message').html(message).addClass('success-message').removeClass('error-message');
+
+          _this4._updateCart();
+        }, 500));
+      }) // On failure
+      .fail(function (response) {
+        return _this4._handleErrors(response);
+      });
   }
 
   _updateCart() {
