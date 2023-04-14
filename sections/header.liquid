@@ -256,7 +256,9 @@
         {{ header_navigation }}
       {% endif %}
     </header>
-
+    {%- unless template == 'cart' -%}
+      {% render 'mini-cart' %}
+    {%- endunless -%}
     {% comment %}
         Header will take the traditional layout when JS is disabled
     {% endcomment %}
@@ -281,6 +283,9 @@
       </header>
     </noscript>
   </div>
+  {%- unless template == 'cart' -%}
+    <div class="mini-cart-overlay" data-mini-cart-overlay></div>
+  {%- endunless -%}
   {%
     render 'live-search',
     searchResultsDisplay: section.settings.search_results_display,
