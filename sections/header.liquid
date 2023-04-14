@@ -124,21 +124,12 @@
 
   {% capture header_tools %}
     <div class="header-tools" data-header-tools>
-      <a
-        class="header-tools-search"
-        data-header-search-button
-        href="{{ routes.search_url }}"
-        aria-label="header-search-link"
-      >
-          {% render 'icon' with 'search' %}
+      <a class="header-tools-search" data-header-search-button href="{{ routes.search_url }}">
+          {% include 'icon' with 'search' %}
       </a>
 
-      <a
-        class="header-tools-account"
-        href="{{ routes.account_url }}"
-        aria-label="header-account-link"
-      >
-        {% render 'icon' with 'user-account' %}
+      <a class="header-tools-account" href="{{ routes.account_url }}">
+        {% include 'icon' with 'user-account' %}
       </a>
 
       <a href="{{ routes.cart_url }}"
@@ -146,15 +137,14 @@
           {% if quantity_style == 'dot' %}cart-contents-dot{% endif %}
           {% if cart.item_count > 0 %}cart-has-content{% endif %}
       "
-        aria-label="header-cart-link" data-mini-cart-trigger
-      >
+      data-mini-cart-trigger>
         {% if quantity_style == 'dot' %}
           <div class="header-tools-cart-icon">
         {% endif %}
           {% if section.settings.cart_icon == 'bag' %}
-            {% render 'icon' with 'shopping-basket' %}
+            {% include 'icon' with 'shopping-basket' %}
           {% else %}
-            {% render 'icon' with 'shopping-cart' %}
+            {% include 'icon' with 'shopping-cart' %}
           {% endif %}
 
           {% if section.settings.quantity_style == 'number' %}
