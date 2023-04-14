@@ -309,11 +309,7 @@ jQuery(function ($) {
         this.miniCart = document.querySelector('mini-cart');
         this.miniCart.renderContents(response);
 
-        var message = this.data.message.replace('{{ product }}', this.product.title).replace('{{ cart_link }}', "<a href=\"".concat(window.Theme.routes.cart_url, "\">").concat(this.data.cartLink, "</a>")).replace('{{ continue_link }}', "<a href=\"".concat(window.Theme.routes.all_products_collection_url, "\">").concat(this.data.continueLink, "</a>")).replace('{{ checkout_link }}', "<form class=\"product-message__checkout-form\" action=\"".concat(window.Theme.routes.cart_url, "\" method=\"POST\"><button class=\"product-message__checkout-button\" type=\"submit\" name=\"checkout\">").concat(this.data.checkoutLink, "</button></form>"));
-
         this.timeouts.push(setTimeout(function () {
-          this.find('.product-message').html(message).addClass('success-message').removeClass('error-message');
-
           this._updateCart();
         }, 500));
       }) // On failure
