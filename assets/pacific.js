@@ -28879,7 +28879,6 @@ class StaticProduct {
 
   _addToCart(e) {
     e.preventDefault();
-      this.$form = jquery_default()('[data-product-form]');
       // PS custom - adding mini cart
       var formData = this.$form.serializeArray();
       
