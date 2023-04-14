@@ -267,8 +267,9 @@ jQuery(function ($) {
 //Submit Product Form
 jQuery(function ($) {
   var collectionPage = $(".template-collection");
+  var homepage = $(".template-index");
 
-  if (collectionPage.length <= 0) {
+  if (collectionPage.length <= 0 || homepage.length <= 0) {
     return;
   }
   
