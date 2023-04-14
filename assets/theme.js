@@ -262,6 +262,14 @@ jQuery(function ($) {
 			$popup.removeClass('open');
 		});
 	}
+
+  var productForm = $('[data-product-form]');
+
+  productForm.each( function() {
+    $(this).on('submit', function(e) {
+      e.preventDefault();
+    })
+  })
 });
 
 // Filter Function
