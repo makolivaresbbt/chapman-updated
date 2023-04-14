@@ -28881,7 +28881,7 @@ class StaticProduct {
     e.preventDefault();
 
       // PS custom - adding mini cart
-      var formData = this.$form.serialize();
+      var formData = this.$form.serializeArray();
       
       this.miniCart = document.querySelector('mini-cart');
 
