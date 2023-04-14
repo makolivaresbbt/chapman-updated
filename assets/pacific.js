@@ -28881,7 +28881,7 @@ class StaticProduct {
     e.preventDefault();
 
       // PS custom - adding mini cart
-      var formData = this.$form.serializeArray();
+      var formData = this.$form.serialize();
       
       this.miniCart = document.querySelector('mini-cart');
 
@@ -28896,17 +28896,17 @@ class StaticProduct {
       });
 
       e.preventDefault();
-      jquery_default.a.ajax({
+      jquery_default().ajax({
         type: 'POST',
         url: "".concat(window.Theme.routes.cart_url, "/add.js"),
         data: formData,
         dataType: 'json'
       }) // On success
       .done(function (response) {
-        if (this.enableSendToCart) {
+      if (this.enableSendToCart) {
           window.location.href = window.Theme.routes.cart_url;
-          return;
-        }
+        return;
+      }
 
         jquery_default()('.cart-count').addClass('active-cart');
         
