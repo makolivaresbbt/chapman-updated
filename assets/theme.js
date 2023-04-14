@@ -266,6 +266,12 @@ jQuery(function ($) {
 
 //Submit Product Form
 jQuery(function ($) {
+  var collectionPage = $(".template-collection");
+
+  if (collectionPage.length <= 0) {
+    return;
+  }
+  
   var productForm = $('[data-product-form]');
   productForm.each( function () {
     $(this).on("submit", function(e) {
