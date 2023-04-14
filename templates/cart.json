@@ -6,7 +6,7 @@
         "cart_shipment_date": "3 to 5 days (NZ)",
         "enable_checkout_lock_icon": false,
         "cart_special_instructions": true,
-        "cart_shipping_calculator": true,
+        "cart_shipping_calculator": false,
         "shipping_calculator_default_country": "United States",
         "cart_contact_email": "Georgia@chapmanstore.co.nz",
         "cart_contact_number": "03 972 7920"
