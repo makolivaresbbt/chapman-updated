@@ -1,0 +1,10 @@
+<div id="mini-cart-footer" data-id="{{ section.id }}">
+  <div class="js-contents">
+    <div class="mini-cart-footer{% if cart == empty  %} hide{% endif %}">
+      <div class="mini-cart-subtotal">
+        <span class="money"><span class="mini-cart-subtotal-title">{{ 'general.general.total' | t }}</span> {{ cart.total_price | money }}</span>
+      </div>
+      <a href="/cart" class="button secondary">View Cart</a>
+    </div>
+  </div>
+</div>
