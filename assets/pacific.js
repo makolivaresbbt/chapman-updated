@@ -28922,7 +28922,7 @@ class StaticProduct {
         }, 500));
       }) // On failure
       .fail(function (response) {
-        return this._handleErrors(response);
+        return this.handleErrors(response);
       });
   }
 
