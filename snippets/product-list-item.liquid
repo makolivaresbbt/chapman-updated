@@ -122,15 +122,19 @@
       {% else %}
         <span class="product-badges inventory">{{ 'products.product.sold_out' | t }}</span>
       {% endif %}
-      {% if product.variants.size > 1 %}
-        <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW PRODUCT</a>
+      {% if item.available %}
+        {% if product.variants.size > 1 %}
+          <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW PRODUCT</a>
+        {% else %}
+          <form method="post" action="/cart/add" accept-charset="UTF-8" class="product" enctype="multipart/form-data" data-product-form>
+            <input type="hidden" name="form_type" value="product">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            <input type="submit" value="Add to cart" class="add-to-cart" />
+          </form>
+        {% endif %}
       {% else %}
-        <form method="post" action="/cart/add" accept-charset="UTF-8" class="product" enctype="multipart/form-data" data-product-form>
-          <input type="hidden" name="form_type" value="product">
-          <input type="hidden" name="utf8" value="✓">
-          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-          <input type="submit" value="Add to cart" class="add-to-cart" />
-        </form>
+        <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW PRODUCT</a>
       {% endif %}
       
     </figure>
