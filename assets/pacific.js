@@ -28792,7 +28792,7 @@ class StaticProduct {
   }
 
   _bindEvents() {
-    this.events = [this.$form.on(`submit.${this.sectionId}`, e => {
+    this.events = [this.$form.on('submit', e => {
       e.preventDefault();
 
       this._addToCart(e);
