@@ -310,11 +310,11 @@ jQuery(function ($) {
         this.miniCart.renderContents(response);
 
         this.timeouts.push(setTimeout(function () {
-          this._updateCart();
+          updateCart();
         }, 500));
       }) // On failure
       .fail(function (response) {
-        return this.handleErrors(response);
+        return handleErrors(response);
       });
     });
   });
