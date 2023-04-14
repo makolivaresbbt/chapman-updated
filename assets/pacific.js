@@ -28792,7 +28792,7 @@ class StaticProduct {
   }
 
   _bindEvents() {
-    this.events = [this.$form.on('submit', e => {
+    this.events = [this.$form.on(`submit.${this.sectionId}`, e => {
       e.preventDefault();
 
       this._addToCart(e);
@@ -28897,7 +28897,7 @@ class StaticProduct {
       e.preventDefault();
       jquery_default().ajax({
         type: 'POST',
-        url: `${window.Theme.routes.cart_url}/add.js`,
+        url: "".concat(window.Theme.routes.cart_url, "/add.js"),
         data: formData,
         dataType: 'json'
       }) // On success
