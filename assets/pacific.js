@@ -28897,7 +28897,7 @@ class StaticProduct {
       e.preventDefault();
       jquery_default().ajax({
         type: 'POST',
-        url: "".concat(window.Theme.routes.cart_url, "/add.js"),
+        url: `${window.Theme.routes.cart_url}/add.js`,
         data: formData,
         dataType: 'json'
       }) // On success
