@@ -309,9 +309,9 @@ jQuery(function ($) {
         this.miniCart = document.querySelector('mini-cart');
         this.miniCart.renderContents(response);
 
-        this.timeouts.push(setTimeout(function () {
+        setTimeout(function () {
           updateCart();
-        }, 500));
+        }, 500);
       }) // On failure
       .fail(function (response) {
         return handleErrors(response);
