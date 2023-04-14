@@ -122,12 +122,17 @@
       {% else %}
         <span class="product-badges inventory">{{ 'products.product.sold_out' | t }}</span>
       {% endif %}
-      <form method="post" action="/cart/add" accept-charset="UTF-8" class="product" enctype="multipart/form-data" data-product-form>
-        <input type="hidden" name="form_type" value="product">
-        <input type="hidden" name="utf8" value="✓">
-        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-        <input type="submit" value="Add to cart" class="add-to-cart" />
-      </form>
+      {% if (product.variants) %}
+        <a href="" class="add-to-cart">Add to cart</a>
+      {% else %}
+        <form method="post" action="/cart/add" accept-charset="UTF-8" class="product" enctype="multipart/form-data" data-product-form>
+          <input type="hidden" name="form_type" value="product">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          <input type="submit" value="Add to cart" class="add-to-cart" />
+        </form>
+      {% endif %}
+      
     </figure>
   
     {% if productTextStyle == 'overlay' and isSearch == false %}
