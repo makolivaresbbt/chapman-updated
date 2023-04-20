@@ -50,6 +50,8 @@
         {% for variant in product.variants %}
           {% if variant.available and variant.title != "Default Title" %}
             <li>{{ variant.title }}</li>
+          {% else %}
+            <li class="soldout">{{ variant.title }}</li>
           {% endif %}
         {% endfor %}
       </ul>
