@@ -48,9 +48,9 @@
     {% if product.variants.size %}
       <ul class="product-list-item-variants">
         {% for variant in product.variants %}
-        {% if variant.available and variant.title != "Default Title" %}
-          <li>{{ variant.title }}</li>
-        {% endif %}
+          {% if variant.available and variant.title != "Default Title" %}
+            <li>{{ variant.title }}</li>
+          {% endif %}
         {% endfor %}
       </ul>
     {% endif %}
