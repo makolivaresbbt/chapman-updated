@@ -51,7 +51,9 @@
           {% if variant.available and variant.title != "Default Title" %}
             <li>{{ variant.title }}</li>
           {% else %}
-            <li class="soldout">{{ variant.title }}</li>
+            {% if variant.title != "Default Title" %}
+              <li class="soldout">{{ variant.title }}</li>
+            {% endif %}
           {% endif %}
         {% endfor %}
       </ul>
