@@ -124,7 +124,7 @@
       {% endif %}
       {% if item.available %}
         {% if product.variants.size > 1 %}
-          <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW PRODUCT</a>
+          <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW</a>
         {% else %}
           <form method="post" action="/cart/add" accept-charset="UTF-8" class="product" enctype="multipart/form-data" data-product-form>
             <input type="hidden" name="form_type" value="product">
@@ -134,7 +134,7 @@
           </form>
         {% endif %}
       {% else %}
-        <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW PRODUCT</a>
+        <a href="{{ item.url | within: collection }}" class="add-to-cart">VIEW</a>
       {% endif %}
       
     </figure>
